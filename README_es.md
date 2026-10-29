@@ -8,8 +8,9 @@ La campaña contiene 15 casos que se desbloquean progresivamente:
 
 - 3 tutoriales sobre `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`, `JOIN` y agrupaciones.
 - Guía SQL bilingüe integrada con sintaxis y explicaciones de las sentencias utilizadas en el juego.
+- Historia completa bilingüe para cada expediente, separada del objetivo y sin revelar la solución.
 - 9 investigaciones guiadas sobre `LIKE`, `IN`, `BETWEEN`, valores nulos, `LEFT JOIN`, `HAVING`, subconsultas, varios joins, `CASE`, CTE y self-joins.
-- 3 expedientes abiertos que combinan varias tablas y culminan con una investigación mediante funciones de ventana.
+- 3 expedientes abiertos divididos en líneas de investigación: cada consulta descubre una prueba, actualiza la libreta y culmina en una acusación separada del editor SQL. El expediente final reúne nueve líneas, diez tablas, pistas ambiguas y dos responsables.
 
 Los tres tutoriales se desbloquean en orden. Al completar el tutorial se abren las doce investigaciones a la vez y se pueden jugar en cualquier orden.
 
@@ -24,10 +25,13 @@ Los casos de cuatro y cinco estrellas no ofrecen pistas opcionales ni consulta d
 - HTML, CSS y módulos JavaScript estáticos.
 - SQLite compilado a WebAssembly mediante `sql.js`, empaquetado con el juego y limitado a consultas de lectura.
 - Casos separados en `src/data/cases.js`.
+- Expedientes por etapas definidos en `src/data/dossier-investigations.js`.
+- Reglas de dominio independientes del navegador en `src/features/` y presentación separada en `src/ui/`.
 - Textos en inglés y español en `src/locales/translations.js`.
 - Pruebas automáticas del motor con el test runner de Node.js.
 
 Cada caso recibe una base SQLite nueva en memoria. Nada se sube ni se conserva, salvo el progreso del juego.
+Las reglas SOLID obligatorias para futuras ampliaciones están documentadas en [`ARCHITECTURE.md`](./ARCHITECTURE.md).
 
 ## Desarrollo
 

@@ -8,8 +8,9 @@ The campaign contains 15 progressively unlocked cases:
 
 - 3 tutorial cases covering `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`, `JOIN` and grouping.
 - Built-in bilingual SQL guide with syntax and explanations for the statements used in the game.
+- A bilingual full story for every case, separated from the objective and without revealing the solution.
 - 9 guided investigations covering `LIKE`, `IN`, `BETWEEN`, null values, `LEFT JOIN`, `HAVING`, subqueries, multiple joins, `CASE`, CTEs and self-joins.
-- 3 open dossiers that combine several tables and culminate in a window-function investigation.
+- 3 open dossiers split into investigative leads: each query uncovers evidence, updates the notebook and culminates in an accusation outside the SQL editor. The final dossier spans nine leads, ten tables, ambiguous evidence and two responsible people.
 
 The three tutorial cases unlock in order. Completing the tutorial opens all twelve investigations at once, which can then be played in any order.
 
@@ -24,10 +25,13 @@ Four- and five-star cases provide neither optional clues nor an example query.
 - Static HTML, CSS and JavaScript modules.
 - SQLite compiled to WebAssembly through `sql.js`, packaged with the game and restricted to read-only queries.
 - Case definitions separated in `src/data/cases.js`.
+- Staged dossiers defined in `src/data/dossier-investigations.js`.
+- Browser-independent domain rules in `src/features/` and isolated presentation modules in `src/ui/`.
 - English and Spanish strings in `src/locales/translations.js`.
 - Automated engine tests using the Node.js test runner.
 
 Each case receives a fresh in-memory SQLite database. Nothing is uploaded or persisted beyond game progress.
+Mandatory SOLID rules for future extensions are documented in [`ARCHITECTURE.md`](./ARCHITECTURE.md).
 
 ## Development
 
