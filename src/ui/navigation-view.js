@@ -12,6 +12,20 @@ export function renderNavigation({cases,current,progress,language,t,onSelect}){
   };
   $('tutorialTabs').innerHTML=cases.slice(0,TUTORIAL_COUNT).map(tab).join('');
   $('investigationTabs').innerHTML=cases.slice(TUTORIAL_COUNT).map((item,index)=>tab(item,index+TUTORIAL_COUNT)).join('');
-  $('investigationStatus').textContent=tutorialComplete(progress.completed,cases)?t('investigationsOpen'):t('investigationsLocked');
+  const investigationsOpen=tutorialComplete(progress.completed,cases);
+  const investigationToggle=$('investigationToggle');
+  const wasLocked=investigationToggle.dataset.locked==='true';
+  investigationToggle.dataset.locked=String(!investigationsOpen);
+  investigationToggle.disabled=!investigationsOpen;
+  investigationToggle.setAttribute('aria-label',`${t('investigationCases')}${investigationsOpen?'':`, ${t('locked')}`}`);
+  $('investigationLock').hidden=investigationsOpen;
+  $('investigationStatus').textContent=investigationsOpen?t('investigationsOpen'):t('investigationsLocked');
+  if(!investigationsOpen){
+    investigationToggle.setAttribute('aria-expanded','false');
+    $('investigationTabs').hidden=true;
+  }else if(wasLocked){
+    investigationToggle.setAttribute('aria-expanded','true');
+    $('investigationTabs').hidden=false;
+  }
   document.querySelectorAll('[data-case]').forEach(button=>button.onclick=()=>onSelect(Number(button.dataset.case)));
 }

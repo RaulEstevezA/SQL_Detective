@@ -21,7 +21,14 @@
 .case-group__heading>span{color:var(--muted);font-size:var(--font-label);text-align:right}
 .case-group__toggle{display:flex;align-items:center;gap:var(--space-8);padding:var(--space-2) 0;color:var(--text);background:transparent;border:0;cursor:pointer;font-weight:var(--weight-semibold)}
 .case-group__toggle:hover{color:var(--accent-text)}
+.case-group__toggle:disabled{color:var(--muted);cursor:not-allowed}
+.case-group__toggle:disabled:hover{color:var(--muted)}
+.case-group__lock{position:relative;width:14px;height:15px;color:var(--accent-text);flex:0 0 14px}
+.case-group__lock:not([hidden]){display:inline-block}
+.case-group__lock::before{position:absolute;top:0;left:3px;width:8px;height:8px;border:2px solid currentColor;border-bottom:0;border-radius:6px 6px 0 0;content:""}
+.case-group__lock::after{position:absolute;bottom:0;left:1px;width:12px;height:9px;background:var(--accent-soft);border:2px solid currentColor;border-radius:2px;content:""}
 .case-group__chevron{color:var(--accent-text);font-size:var(--font-title-sm);transition:transform var(--transition-fast)}
+.case-group__toggle:disabled .case-group__chevron{color:var(--muted)}
 .case-group__toggle[aria-expanded=false] .case-group__chevron{transform:rotate(-90deg)}
 @media(max-width:600px){.case-group__heading{align-items:flex-start;flex-direction:column;gap:var(--space-2)}.case-group__heading>span{text-align:left}}
 
@@ -65,7 +72,7 @@
 .dossier__accusation .button{justify-self:start}
 .dossier__accusation .status{padding:0;border:0}
 #schemaPanel:not([hidden]){display:grid;gap:var(--space-8)}
-.site-header__actions{display:flex;align-items:center;gap:var(--space-12)}
-.back-to-games{gap:var(--space-8);white-space:nowrap}
-.back-to-games:hover{text-decoration:none}
-@media(max-width:600px){.site-header{align-items:flex-start;gap:var(--space-12)}.site-header__actions{align-items:flex-end;flex-direction:column-reverse}.back-to-games{padding:var(--space-4) var(--space-8)}}
+.progress-row>a.button:hover{text-decoration:none}
+.intro__brand{display:flex;align-items:center;gap:var(--space-16)}
+.game-logo{display:block;width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
+@media(max-width:600px){.intro__brand{align-items:flex-start}.game-logo{width:56px;height:56px}}

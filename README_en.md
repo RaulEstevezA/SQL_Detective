@@ -1,69 +1,98 @@
 # SQL Detective
 
-SQL Detective is a bilingual browser game for learning SQL through fictional investigations. Each case provides a story, an objective and local tables. The player writes a read-only query, inspects its result and unlocks an explanation after finding the required evidence.
+<p align="center">
+  <img src="./public/sql-detective-logo.png" alt="SQL Detective logo" width="160">
+</p>
+
+An educational browser game for learning SQL by solving mysteries with fictional databases. Each investigation provides a story, an objective and evidence that must be discovered through read-only queries.
+
+**Play:** [raulesteveza.github.io/games/SQL_Detective](https://raulesteveza.github.io/games/SQL_Detective/)
+
+**Español:** [README_es.md](./README_es.md)
+
+## Features
+
+- 15 complete cases in English and Spanish.
+- Built-in tutorial and progressive unlocking.
+- Full case stories separated from objectives to avoid spoilers.
+- Accessible difficulty scale from 0 to 5 stars.
+- Queries executed locally with SQLite and WebAssembly.
+- Optional clues, educational errors and solution explanations.
+- Three multi-stage dossiers with an evidence notebook and final accusation.
+- Browser-based progress with a reset option.
+- Built-in SQL guide with `.tables` for case exploration.
+- Responsive design, keyboard navigation and visible focus.
+- No backend, user accounts or mandatory external services.
 
 ## Campaign
 
-The campaign contains 15 progressively unlocked cases:
+The campaign is divided into three sections:
 
-- 3 tutorial cases covering `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`, `JOIN` and grouping.
-- Built-in bilingual SQL guide with syntax and explanations for the statements used in the game.
-- A bilingual full story for every case, separated from the objective and without revealing the solution.
-- 9 guided investigations covering `LIKE`, `IN`, `BETWEEN`, null values, `LEFT JOIN`, `HAVING`, subqueries, multiple joins, `CASE`, CTEs and self-joins.
-- 3 open dossiers split into investigative leads: each query uncovers evidence, updates the notebook and culminates in an accusation outside the SQL editor. The final dossier spans nine leads, ten tables, ambiguous evidence and two responsible people.
+| Section | Cases | Content |
+|---|---:|---|
+| Tutorial | 3 | `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`, `JOIN`, `COUNT` and `GROUP BY` |
+| Investigations | 9 | `LIKE`, `IN`, `BETWEEN`, `NULL`, multiple joins, aggregates, subqueries, `CASE`, CTEs and self-joins |
+| Dossiers | 3 | Multi-stage investigation, cross-source evidence, window functions and accusations |
 
-The three tutorial cases unlock in order. Completing the tutorial opens all twelve investigations at once, which can then be played in any order.
+The three tutorial cases must be completed in order. Until then, the investigations section stays collapsed and displays a lock. Completing the tutorial unlocks all twelve investigations, which can then be played freely and in any order.
 
-Optional clues, educational errors and solution explanations are included. Progress is stored in `localStorage` under `sqldetective.progress` and can be reset from the interface.
+Four- and five-star cases provide neither optional clues nor example queries. The final dossier contains nine investigative leads, ten tables, ambiguous evidence and two responsible people who must be established through independent sources.
 
-Every case has an accessible difficulty rating from zero to five stars. Zero-star cases introduce the interface; five-star cases are reserved for the most open-ended investigations.
+## How to play
 
-Four- and five-star cases provide neither optional clues nor an example query.
+1. Read the case summary and open the full story when you need more context.
+2. Inspect the available tables and columns. In the final dossier, you must discover them from the editor.
+3. Write a SQL query and run it with the button or `Ctrl/Cmd + Enter`.
+4. Compare results, discard coincidences and record new evidence.
+5. In dossiers, complete each lead to update the detective notebook.
+6. Submit the final accusation once all evidence has been collected.
 
-## Architecture
+The SQL Guide explains every statement used by the game. It also supports:
 
-- Static HTML, CSS and JavaScript modules.
-- SQLite compiled to WebAssembly through `sql.js`, packaged with the game and restricted to read-only queries.
-- Case definitions separated in `src/data/cases.js`.
-- Staged dossiers defined in `src/data/dossier-investigations.js`.
-- Browser-independent domain rules in `src/features/` and isolated presentation modules in `src/ui/`.
-- English and Spanish strings in `src/locales/translations.js`.
-- Automated engine tests using the Node.js test runner.
-
-Each case receives a fresh in-memory SQLite database. Nothing is uploaded or persisted beyond game progress.
-Mandatory SOLID rules for future extensions are documented in [`ARCHITECTURE.md`](./ARCHITECTURE.md).
-
-## Development
-
-Requires Node.js 22 or later. Install the build dependency once with `npm install`.
-
-```bash
-npm run dev       # http://localhost:4173
-npm test          # engine tests
-npm run build     # static output in dist/
-npm run check     # tests and build
+```sql
+.tables
 ```
 
-## Deployment
+to list the current case tables, and:
 
-`.github/workflows/deploy-web.yml` tests and builds the game, then copies `dist/` to `games/SQL_Detective/` in the personal website repository. Add `PORTFOLIO_DEPLOY_TOKEN` as an Actions secret with write access to that repository before the first deployment.
+```sql
+SELECT * FROM table_name LIMIT 5;
+```
 
-All asset paths are relative, so the build also works from any static subdirectory.
+to inspect a small sample of their columns and rows.
 
-## Adding a case
+## Security and privacy
 
-Add a case object with translated story text, table rows, hints, expected evidence and a solution to `src/data/cases.js`. Add engine tests when the case introduces new SQL syntax.
+- All records are fictional and loaded into a fresh in-memory SQLite database.
+- Queries run exclusively inside the browser tab.
+- No data, query or progress is sent to a server.
+- Only read-only queries beginning with `SELECT` or `WITH` are accepted.
+- Writes, schema changes and multiple statements are blocked.
+- `.tables` is a safe meta-command implemented by the game itself.
+- Progress and the selected language are stored only in the browser.
 
-## Design reference
+## Accessibility and compatibility
 
-This project follows the local `personal_web_style` design and UX reference. It uses its dark palette, tokens, component hierarchy, responsive breakpoints, common header and accessibility rules.
+- Adaptive interface for desktop, tablet and mobile.
+- Keyboard-operable controls.
+- Visible focus and a skip link to the game.
+- Labels for the editor, tabs, difficulty, dialogs and forms.
+- Locked states communicated visually and with ARIA attributes.
+- Compatible with modern browsers supporting ES modules, WebAssembly, `dialog` and `localStorage`.
+
+## Technology
+
+- Semantic HTML5.
+- Custom CSS.
+- JavaScript through ES modules.
+- [sql.js](https://github.com/sql-js/sql.js) for SQLite compiled to WebAssembly.
 
 ## Developer
 
-**Raul Estevez** · [Personal Website](https://raulesteveza.github.io/) · [LinkedIn Profile](https://www.linkedin.com/in/raulesteveza/)
+**Raul Estevez** · [Personal website](https://raulesteveza.github.io/) · [LinkedIn](https://www.linkedin.com/in/raulesteveza/)
 
 Suggestions and bug reports: [contact.raulesteveza@gmail.com](mailto:contact.raulesteveza@gmail.com)
 
 ## License
 
-[MIT](./LICENSE)
+Distributed under the [MIT license](./LICENSE).

@@ -6,26 +6,23 @@
   <meta name="theme-color" content="#0d1117">
   <meta name="description" content="Learn SQL by solving database mysteries through interactive queries and progressively challenging cases.">
   <title>SQL Detective | Raul Estevez</title>
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.png" type="image/png" sizes="64x64">
   <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 <body>
   <a class="skip-link" href="#game">Skip to the game</a>
   <header class="site-header">
     <a href="https://raulesteveza.github.io/">Raúl Estévez</a>
-    <div class="site-header__actions">
-      <a class="button back-to-games" href="../"><span aria-hidden="true">←</span><span data-i18n="backToGames"></span></a>
-      <div class="language" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="es" aria-pressed="false">ES</button>
-      </div>
+    <div class="language" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
     </div>
   </header>
   <main id="game" class="app" tabindex="-1">
     <section class="window intro" aria-labelledby="game-title">
-      <div class="intro__heading"><div><h1 id="game-title">SQL Detective</h1><p class="subtitle" data-i18n="subtitle"></p></div><span class="badge badge--success" data-i18n="local"></span></div>
+      <div class="intro__heading"><div class="intro__brand"><img class="game-logo" src="./sql-detective-logo.png" alt="" width="72" height="72"><div><h1 id="game-title">SQL Detective</h1><p class="subtitle" data-i18n="subtitle"></p></div></div><span class="badge badge--success" data-i18n="local"></span></div>
       <p class="description" data-i18n="description"></p>
-      <div class="progress-row"><span id="progressText"></span><button id="referenceButton" class="button" type="button" data-i18n="reference"></button><button id="tutorialButton" class="button" type="button" data-i18n="tutorial"></button><button id="resetButton" class="button" type="button" data-i18n="reset"></button></div>
+      <div class="progress-row"><span id="progressText"></span><button id="referenceButton" class="button" type="button" data-i18n="reference"></button><button id="tutorialButton" class="button" type="button" data-i18n="tutorial"></button><button id="resetButton" class="button" type="button" data-i18n="reset"></button><a class="button" href="../">Juegos</a></div>
     </section>
 
     <nav class="case-nav panel" aria-label="Cases">
@@ -34,7 +31,7 @@
         <div id="tutorialTabs" class="case-tabs" role="tablist" aria-labelledby="tutorialCasesTitle"></div>
       </section>
       <section class="case-group" aria-labelledby="investigationCasesTitle">
-        <div class="case-group__heading"><button class="case-group__toggle" type="button" aria-expanded="true" aria-controls="investigationTabs" data-collapse-target="investigationTabs"><span id="investigationCasesTitle" class="case-group__title" role="heading" aria-level="2" data-i18n="investigationCases"></span><span class="case-group__chevron" aria-hidden="true">▾</span></button><span id="investigationStatus"></span></div>
+        <div class="case-group__heading"><button id="investigationToggle" class="case-group__toggle" type="button" aria-expanded="true" aria-controls="investigationTabs" data-collapse-target="investigationTabs"><span id="investigationCasesTitle" class="case-group__title" role="heading" aria-level="2" data-i18n="investigationCases"></span><span id="investigationLock" class="case-group__lock" aria-hidden="true"></span><span class="case-group__chevron" aria-hidden="true">▾</span></button><span id="investigationStatus"></span></div>
         <div id="investigationTabs" class="case-tabs" role="tablist" aria-labelledby="investigationCasesTitle"></div>
       </section>
     </nav>

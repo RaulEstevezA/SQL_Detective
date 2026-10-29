@@ -1,62 +1,91 @@
 # SQL Detective
 
-SQL Detective es un juego bilingüe para navegador que enseña SQL mediante investigaciones ficticias. Cada caso incluye una historia, un objetivo y tablas locales. El jugador escribe una consulta de solo lectura, examina el resultado y desbloquea una explicación al encontrar las pruebas requeridas.
+<p align="center">
+  <img src="./public/sql-detective-logo.png" alt="Logo de SQL Detective" width="160">
+</p>
+
+Juego web educativo para aprender SQL resolviendo misterios con bases de datos ficticias. Cada investigación presenta una historia, un objetivo y pruebas que deben descubrirse mediante consultas de solo lectura.
+
+**Jugar:** [raulesteveza.github.io/games/SQL_Detective](https://raulesteveza.github.io/games/SQL_Detective/)
+
+**English:** [README_en.md](./README_en.md)
+
+## Características
+
+- 15 casos completos en español e inglés.
+- Tutorial integrado y desbloqueo progresivo.
+- Historias completas separadas de los objetivos para evitar spoilers.
+- Dificultad accesible de 0 a 5 estrellas.
+- Consultas ejecutadas localmente con SQLite y WebAssembly.
+- Pistas opcionales, errores didácticos y explicación de las soluciones.
+- Tres expedientes por etapas con libreta de pruebas y acusación final.
+- Progreso guardado en el navegador y opción para reiniciarlo.
+- Guía SQL integrada con `.tables` para explorar cada caso.
+- Diseño responsive, navegación por teclado y foco visible.
+- Sin backend, cuentas de usuario ni servicios externos obligatorios.
 
 ## Campaña
 
-La campaña contiene 15 casos que se desbloquean progresivamente:
+La campaña está organizada en tres bloques:
 
-- 3 tutoriales sobre `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`, `JOIN` y agrupaciones.
-- Guía SQL bilingüe integrada con sintaxis y explicaciones de las sentencias utilizadas en el juego.
-- Historia completa bilingüe para cada expediente, separada del objetivo y sin revelar la solución.
-- 9 investigaciones guiadas sobre `LIKE`, `IN`, `BETWEEN`, valores nulos, `LEFT JOIN`, `HAVING`, subconsultas, varios joins, `CASE`, CTE y self-joins.
-- 3 expedientes abiertos divididos en líneas de investigación: cada consulta descubre una prueba, actualiza la libreta y culmina en una acusación separada del editor SQL. El expediente final reúne nueve líneas, diez tablas, pistas ambiguas y dos responsables.
+| Bloque | Casos | Contenido |
+|---|---:|---|
+| Tutorial | 3 | `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`, `JOIN`, `COUNT` y `GROUP BY` |
+| Investigaciones | 9 | `LIKE`, `IN`, `BETWEEN`, `NULL`, joins múltiples, agregaciones, subconsultas, `CASE`, CTE y self-joins |
+| Expedientes | 3 | Investigación por etapas, combinación de varias fuentes, funciones de ventana y acusaciones |
 
-Los tres tutoriales se desbloquean en orden. Al completar el tutorial se abren las doce investigaciones a la vez y se pueden jugar en cualquier orden.
+Los tres tutoriales deben completarse en orden. Hasta entonces, la sección de investigaciones permanece cerrada y muestra un candado. Al terminar el tutorial se desbloquean las doce investigaciones, que pueden jugarse libremente y en cualquier orden.
 
-Incluye pistas opcionales, errores didácticos y explicaciones de las soluciones. El progreso se guarda en `localStorage` con la clave `sqldetective.progress` y se puede reiniciar desde la interfaz.
+Los casos de cuatro y cinco estrellas no proporcionan pistas opcionales ni consultas de ejemplo. El expediente final contiene nueve líneas de investigación, diez tablas, pruebas ambiguas y dos responsables que deben demostrarse mediante fuentes independientes.
 
-Cada caso tiene una dificultad accesible de cero a cinco estrellas. Los casos de cero estrellas presentan la interfaz; las cinco estrellas quedan reservadas para las investigaciones más abiertas.
+## Cómo se juega
 
-Los casos de cuatro y cinco estrellas no ofrecen pistas opcionales ni consulta de ejemplo.
+1. Lee el resumen del caso y abre la historia completa si necesitas más contexto.
+2. Examina las tablas y columnas disponibles. En el expediente final deberás descubrirlas desde el editor.
+3. Escribe una consulta SQL y ejecútala con el botón correspondiente o con `Ctrl/Cmd + Enter`.
+4. Compara los resultados, descarta coincidencias y registra nuevas pruebas.
+5. En los expedientes, completa cada línea para actualizar la libreta del detective.
+6. Formula la acusación final cuando todas las pruebas estén reunidas.
 
-## Arquitectura
+La Guía SQL explica las sentencias utilizadas. También admite:
 
-- HTML, CSS y módulos JavaScript estáticos.
-- SQLite compilado a WebAssembly mediante `sql.js`, empaquetado con el juego y limitado a consultas de lectura.
-- Casos separados en `src/data/cases.js`.
-- Expedientes por etapas definidos en `src/data/dossier-investigations.js`.
-- Reglas de dominio independientes del navegador en `src/features/` y presentación separada en `src/ui/`.
-- Textos en inglés y español en `src/locales/translations.js`.
-- Pruebas automáticas del motor con el test runner de Node.js.
-
-Cada caso recibe una base SQLite nueva en memoria. Nada se sube ni se conserva, salvo el progreso del juego.
-Las reglas SOLID obligatorias para futuras ampliaciones están documentadas en [`ARCHITECTURE.md`](./ARCHITECTURE.md).
-
-## Desarrollo
-
-Requiere Node.js 22 o posterior. Instala la dependencia de compilación una vez con `npm install`.
-
-```bash
-npm run dev       # http://localhost:4173
-npm test          # pruebas del motor
-npm run build     # salida estática en dist/
-npm run check     # pruebas y compilación
+```sql
+.tables
 ```
 
-## Despliegue
+para enumerar las tablas del caso actual, y:
 
-`.github/workflows/deploy-web.yml` prueba y compila el juego y copia `dist/` a `games/SQL_Detective/` en el repositorio de la web personal. Antes del primer despliegue hay que añadir `PORTFOLIO_DEPLOY_TOKEN` como secreto de Actions con escritura en ese repositorio.
+```sql
+SELECT * FROM nombre_tabla LIMIT 5;
+```
 
-Todas las rutas de recursos son relativas, por lo que el build funciona desde cualquier subdirectorio estático.
+para examinar una muestra de sus columnas y filas.
 
-## Añadir un caso
+## Seguridad y privacidad
 
-Añade a `src/data/cases.js` un objeto con historia traducida, filas de las tablas, pistas, pruebas esperadas y solución. Añade pruebas del motor cuando el caso introduzca nueva sintaxis SQL.
+- Todos los datos son ficticios y se cargan en una base SQLite nueva en memoria.
+- Las consultas se ejecutan únicamente en la pestaña del navegador.
+- No se envían datos, consultas ni progreso a ningún servidor.
+- Solo se admiten consultas de lectura iniciadas con `SELECT` o `WITH`.
+- Las escrituras, los cambios de esquema y las consultas múltiples están bloqueados.
+- `.tables` es un metacomando seguro implementado por el propio juego.
+- El progreso y el idioma seleccionado se guardan únicamente en el navegador.
 
-## Referencia de diseño
+## Accesibilidad y compatibilidad
 
-Este proyecto sigue la referencia local `personal_web_style`: paleta oscura, tokens, jerarquía de componentes, breakpoints, cabecera común y requisitos de accesibilidad.
+- Interfaz adaptable para ordenador, tableta y móvil.
+- Controles accesibles mediante teclado.
+- Foco visible y enlace para saltar directamente al juego.
+- Etiquetas para el editor, pestañas, dificultad, diálogos y formularios.
+- Estados bloqueados comunicados visualmente y mediante atributos ARIA.
+- Compatible con navegadores modernos que admitan módulos ES, WebAssembly, `dialog` y `localStorage`.
+
+## Tecnologías
+
+- HTML5 semántico.
+- CSS personalizado.
+- JavaScript mediante módulos ES.
+- [sql.js](https://github.com/sql-js/sql.js) para ejecutar SQLite en WebAssembly.
 
 ## Desarrollador
 
@@ -66,4 +95,4 @@ Sugerencias y errores: [contact.raulesteveza@gmail.com](mailto:contact.raulestev
 
 ## Licencia
 
-[MIT](./LICENSE)
+Distribuido bajo la licencia [MIT](./LICENSE).
