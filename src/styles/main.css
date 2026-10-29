@@ -51,3 +51,21 @@
 .lore__story p{line-height:var(--leading-prose)}
 .lore__objective{display:grid;gap:var(--space-8);padding:var(--space-16);color:var(--text);background:var(--accent-soft);border-radius:var(--radius-md)}
 @media(max-width:600px){.case-meta{justify-content:flex-start}}
+.dossier{display:grid;gap:var(--space-16);padding:var(--space-16);background:var(--page-bg);border:1px solid var(--accent);border-radius:var(--radius-md)}
+.dossier__stage{display:grid;gap:var(--space-8)}
+.dossier__stage h3{color:var(--text)}
+.dossier__stage p{line-height:var(--leading-prose)}
+.dossier__notebook{display:grid;gap:var(--space-8);padding-top:var(--space-12);border-top:var(--border-line)}
+.dossier__notebook strong{color:var(--text)}
+.dossier__notebook ol{display:grid;gap:var(--space-8);margin:0;padding-left:var(--space-20)}
+.dossier__accusation{display:grid;gap:var(--space-12);padding:var(--space-16);color:var(--text);background:var(--warning-soft);border:1px solid var(--warning);border-radius:var(--radius-md)}
+.dossier__accusation form,.dossier__accusation form>div{display:grid;gap:var(--space-12)}
+.dossier__accusation label{display:grid;gap:var(--space-6);font-weight:var(--weight-medium)}
+.dossier__accusation select{width:100%;padding:var(--space-8) var(--space-12);color:var(--text);background:var(--surface);border:var(--border-line);border-radius:var(--radius-sm)}
+.dossier__accusation .button{justify-self:start}
+.dossier__accusation .status{padding:0;border:0}
+#schemaPanel:not([hidden]){display:grid;gap:var(--space-8)}
+.site-header__actions{display:flex;align-items:center;gap:var(--space-12)}
+.back-to-games{gap:var(--space-8);white-space:nowrap}
+.back-to-games:hover{text-decoration:none}
+@media(max-width:600px){.site-header{align-items:flex-start;gap:var(--space-12)}.site-header__actions{align-items:flex-end;flex-direction:column-reverse}.back-to-games{padding:var(--space-4) var(--space-8)}}

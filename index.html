@@ -13,9 +13,12 @@
   <a class="skip-link" href="#game">Skip to the game</a>
   <header class="site-header">
     <a href="https://raulesteveza.github.io/">Raúl Estévez</a>
-    <div class="language" role="group" aria-label="Language">
-      <button type="button" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    <div class="site-header__actions">
+      <a class="button back-to-games" href="../"><span aria-hidden="true">←</span><span data-i18n="backToGames"></span></a>
+      <div class="language" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </div>
     </div>
   </header>
   <main id="game" class="app" tabindex="-1">
@@ -42,7 +45,12 @@
         <div class="pane__body brief">
           <p id="caseStory"></p>
           <div class="objective"><strong data-i18n="objective"></strong><p id="caseObjective"></p></div>
-          <h3 data-i18n="database"></h3><div id="schema" class="schema"></div>
+          <section id="dossierPanel" class="dossier" aria-labelledby="dossierStageTitle" hidden>
+            <div class="dossier__stage"><span id="dossierStageProgress" class="eyebrow"></span><h3 id="dossierStageTitle"></h3><p id="dossierStageBriefing"></p></div>
+            <div class="dossier__notebook"><strong data-i18n="notebook"></strong><ol id="dossierClues"></ol><p id="dossierEmpty" class="muted" data-i18n="noClues"></p></div>
+            <div id="accusationPanel" class="dossier__accusation" hidden><h3 data-i18n="accusation"></h3><p data-i18n="accusationIntro"></p><form id="accusationForm"><div id="accusationFields"></div><button class="button button--primary" type="submit" data-i18n="accuse"></button></form><p id="accusationStatus" class="status" role="status"></p></div>
+          </section>
+          <section id="schemaPanel" aria-labelledby="databaseTitle"><h3 id="databaseTitle" data-i18n="database"></h3><div id="schema" class="schema"></div></section>
           <details id="hintsDetails"><summary data-i18n="clues"></summary><ol id="hints"></ol></details>
         </div>
       </article>
