@@ -86,24 +86,24 @@ export const caseLore={
     'Ambos identificadores remiten al mismo directorio de personal: uno representa a quien llamó y el otro a quien recibió la llamada. La conversación 70 es la que asuntos internos necesita reconstruir.'
   ]),
   'harbor-conspiracy':bi([
-    'A sealed crate disappeared from Pier 3 while a storm delayed the night shift. A dockworker remembers a blue van crossing the gate, but rain obscured its plate and the paper manifest was later found incomplete.',
-    'Digital gate records can place vehicles at the pier, while driver and call records can connect the person behind the wheel with a possible coordinator. Investigators are interested in the van that left between 22:00 and 22:20 and in a call brief enough to resemble a confirmation signal.'
+    'A sealed crate disappeared from Pier 3 while a storm delayed the night shift. The paper manifest was found incomplete, and conflicting witness statements left the harbor authority without a reliable suspect.',
+    'Several independent systems survived the storm: incident reports, vehicle gates, driver records and calls. Reconstructing the operation will require following evidence from one source to the next before naming both the person at the harbor and whoever coordinated them.'
   ],[
-    'Una caja sellada desapareció del muelle 3 mientras una tormenta retrasaba el turno de noche. Un estibador recuerda una furgoneta azul cruzando la salida, pero la lluvia ocultó la matrícula y el manifiesto en papel apareció incompleto.',
-    'Los registros digitales pueden situar los vehículos en el muelle, mientras que los datos de conductores y llamadas pueden conectar a quien iba al volante con una posible persona coordinadora. Interesa la furgoneta que salió entre las 22:00 y las 22:20 y una llamada lo bastante breve como para parecer una señal de confirmación.'
+    'Una caja sellada desapareció del muelle 3 mientras una tormenta retrasaba el turno de noche. El manifiesto en papel apareció incompleto y los testimonios contradictorios dejaron a la autoridad portuaria sin una persona sospechosa fiable.',
+    'Varios sistemas independientes sobrevivieron a la tormenta: partes de incidencia, controles de vehículos, registros de conductores y llamadas. Reconstruir la operación exigirá seguir las pruebas de una fuente a la siguiente antes de señalar a quien actuó en el puerto y a quien lo coordinó.'
   ]),
   'glass-gallery':bi([
     'During the winter gala, a crystal miniature vanished from a locked display in the restricted gallery. The crowd, temporary staff and borrowed invitations made the ordinary guest list unreliable.',
-    'Three independent traces survived: camera passages through the restricted zone, official gala tickets and the objects declared at the coat check. The culprit crossed the gallery at least twice, had no ticket record and left a coat containing a brass key.'
+    'Camera movements, official tickets and coat-check declarations preserve different fragments of the evening. None identifies the thief alone; the culprit will emerge only when the surviving traces are compared and the false leads discarded.'
   ],[
     'Durante la gala de invierno, una miniatura de cristal desapareció de una vitrina cerrada en la galería restringida. La multitud, el personal temporal y las invitaciones prestadas hicieron que la lista normal de asistentes dejara de ser fiable.',
-    'Sobrevivieron tres rastros independientes: los pasos de cámara por la zona restringida, las entradas oficiales y los objetos declarados en consigna. La persona culpable cruzó la galería al menos dos veces, no tenía entrada registrada y dejó un abrigo con una llave de latón.'
+    'Los movimientos de cámara, las entradas oficiales y las declaraciones de consigna conservan fragmentos distintos de la velada. Ninguno identifica por sí solo a la persona culpable; solo aparecerá al comparar los rastros y descartar las pistas falsas.'
   ]),
   'last-signal':bi([
-    'For two consecutive nights, an encrypted relay transmitted from a protected room after every other signal had gone quiet. Whoever controlled it waited until the day’s final transmission to hide among routine traffic.',
-    'The transmission archive can rank each operator’s activity within each day, while the badge system records who physically entered the Relay Room. The same operator must be the final sender on both nights and must also have opened that room.'
+    'For two consecutive nights, an encrypted relay transmitted from somewhere inside the protected communications building. The signal blended into routine traffic and disappeared before security could isolate its source, suggesting careful preparation rather than an improvised intrusion.',
+    'Incident reports, network events, access records and maintenance archives preserve different fragments of the operation. Several employees had legitimate reasons to appear in those systems, so identifying the sender will not be enough: the investigation must also uncover whoever prepared the equipment and distinguish coordination from coincidence.'
   ],[
-    'Durante dos noches consecutivas, un repetidor cifrado transmitió desde una sala protegida cuando todas las demás señales ya habían callado. Quien lo controlaba esperaba hasta la última transmisión del día para ocultarse entre el tráfico rutinario.',
-    'El archivo de transmisiones permite ordenar la actividad de cada operador dentro de cada día, mientras que el sistema de credenciales registra quién entró físicamente en la sala del repetidor. La misma persona debe ser la última emisora de ambas noches y haber abierto también esa sala.'
+    'Durante dos noches consecutivas, un repetidor cifrado transmitió desde algún lugar del edificio protegido de comunicaciones. La señal se mezcló con el tráfico rutinario y desapareció antes de que seguridad pudiera aislar su origen, lo que sugiere una preparación cuidadosa y no una intrusión improvisada.',
+    'Los informes de incidencias, los eventos de red, los registros de acceso y los archivos de mantenimiento conservan fragmentos distintos de la operación. Varias personas tenían motivos legítimos para aparecer en esos sistemas, así que no bastará con identificar a quien emitió: la investigación también deberá descubrir quién preparó el equipo y distinguir la coordinación de una coincidencia.'
   ])
 };

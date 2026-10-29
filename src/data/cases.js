@@ -1,5 +1,6 @@
 import {advancedCases} from './advanced-cases.js';
 import {caseLore} from './case-lore.js';
+import {dossierInvestigations} from './dossier-investigations.js';
 
 const caseDefinitions = [
   {
@@ -38,4 +39,7 @@ const caseDefinitions = [
   ...advancedCases
 ];
 
-export const cases=caseDefinitions.map(item=>({...item,lore:caseLore[item.id]}));
+export const cases=caseDefinitions.map(item=>{
+  const investigation=dossierInvestigations[item.id];
+  return {...item,lore:caseLore[item.id],...(investigation?{...investigation,investigation}: {})};
+});

@@ -5,6 +5,7 @@ import {cases} from '../src/data/cases.js';
 import {executeSql,matchesExpected,validateReadOnly} from '../src/lib/sql-engine.js';
 import {isCaseLocked,tutorialComplete} from '../src/lib/progression.js';
 import {sqlReference} from '../src/locales/translations.js';
+import {advanceDossier,accusationMatches,getDossierState} from '../src/features/dossier.js';
 
 const queries={
   'missing-key':"SELECT name, role FROM access_log WHERE room = 'A-12' AND time > '20:00';",
@@ -21,7 +22,32 @@ const queries={
   'inside-contact':'SELECT caller.name AS caller, receiver.name AS receiver FROM calls JOIN people AS caller ON calls.caller_id = caller.id JOIN people AS receiver ON calls.receiver_id = receiver.id WHERE calls.id = 70;',
   'harbor-conspiracy':"SELECT drivers.name AS driver, people.name AS coordinator FROM vans JOIN drivers ON vans.driver_id = drivers.id JOIN gate_logs ON vans.id = gate_logs.van_id JOIN calls ON drivers.id = calls.driver_id JOIN people ON calls.person_id = people.id WHERE vans.color = 'blue' AND gate_logs.pier = 3 AND gate_logs.left_at BETWEEN '22:00' AND '22:20' AND calls.duration < 60;",
   'glass-gallery':"WITH visits AS (SELECT person_id, COUNT(*) AS total FROM camera_events WHERE zone = 'Restricted Gallery' GROUP BY person_id HAVING COUNT(*) >= 2) SELECT people.name FROM visits JOIN people ON visits.person_id = people.id LEFT JOIN tickets ON people.id = tickets.person_id JOIN coat_checks ON people.id = coat_checks.person_id WHERE tickets.person_id IS NULL AND coat_checks.item = 'brass key';",
-  'last-signal':"WITH ranked AS (SELECT operator_id, day, ROW_NUMBER() OVER (PARTITION BY day ORDER BY sent_at DESC) AS rank FROM transmissions), leaders AS (SELECT operator_id FROM ranked WHERE rank = 1 GROUP BY operator_id HAVING COUNT(*) = 2) SELECT operators.name FROM leaders JOIN operators ON leaders.operator_id = operators.id JOIN badge_entries ON operators.id = badge_entries.operator_id WHERE badge_entries.room = 'Relay Room';"
+  'last-signal':"WITH ranked AS (SELECT operator_id, day, ROW_NUMBER() OVER (PARTITION BY day ORDER BY sent_at DESC) AS rank FROM transmissions WHERE channel = 'OPS'), leaders AS (SELECT operator_id FROM ranked WHERE rank = 1 GROUP BY operator_id HAVING COUNT(DISTINCT day) = 2) SELECT DISTINCT operators.name FROM leaders JOIN operators ON leaders.operator_id = operators.id JOIN badge_entries ON operators.id = badge_entries.operator_id WHERE badge_entries.room = 'Relay Room';"
+};
+
+const dossierQueries={
+  'harbor-conspiracy':[
+    'SELECT detail FROM incident_reports WHERE pier = 3;',
+    "SELECT vans.plate FROM vans JOIN gate_logs ON vans.id = gate_logs.van_id WHERE vans.color = 'blue' AND gate_logs.pier = 3;",
+    "SELECT drivers.name AS driver FROM vans JOIN drivers ON vans.driver_id = drivers.id WHERE vans.plate = 'NX-77';",
+    "SELECT people.name AS coordinator FROM calls JOIN drivers ON calls.driver_id = drivers.id JOIN people ON calls.person_id = people.id WHERE drivers.name = 'Mina Costa' AND calls.duration < 60;"
+  ],
+  'glass-gallery':[
+    "SELECT people.name, COUNT(*) AS visits FROM camera_events JOIN people ON camera_events.person_id = people.id WHERE camera_events.zone = 'Restricted Gallery' GROUP BY people.name HAVING COUNT(*) >= 2 ORDER BY people.name;",
+    "WITH repeat_visitors AS (SELECT person_id FROM camera_events WHERE zone = 'Restricted Gallery' GROUP BY person_id HAVING COUNT(*) >= 2) SELECT people.name FROM repeat_visitors JOIN people ON repeat_visitors.person_id = people.id LEFT JOIN tickets ON people.id = tickets.person_id WHERE tickets.person_id IS NULL ORDER BY people.name;",
+    "SELECT people.name, coat_checks.item FROM people JOIN coat_checks ON people.id = coat_checks.person_id WHERE coat_checks.item = 'brass key';"
+  ],
+  'last-signal':[
+    "SELECT detail FROM incident_reports WHERE system = 'Relay';",
+    "SELECT day, terminal_id, activated_at FROM relay_events WHERE signature = 'SIG-9' ORDER BY day;",
+    "SELECT DISTINCT terminals.code, terminals.room FROM relay_events JOIN terminals ON relay_events.terminal_id = terminals.id WHERE relay_events.signature = 'SIG-9';",
+    "WITH ranked AS (SELECT operator_id, day, ROW_NUMBER() OVER (PARTITION BY day ORDER BY sent_at DESC) AS rank FROM transmissions WHERE channel = 'OPS') SELECT ranked.day, operators.name FROM ranked JOIN operators ON ranked.operator_id = operators.id WHERE ranked.rank = 1 ORDER BY ranked.day;",
+    "SELECT operators.name FROM badge_entries JOIN operators ON badge_entries.operator_id = operators.id WHERE badge_entries.room = 'Relay Room' GROUP BY operators.id, operators.name HAVING COUNT(DISTINCT badge_entries.day) = 2 ORDER BY operators.name;",
+    "WITH ranked AS (SELECT operator_id, day, ROW_NUMBER() OVER (PARTITION BY day ORDER BY sent_at DESC) AS rank FROM transmissions WHERE channel = 'OPS'), repeated_senders AS (SELECT operator_id FROM ranked WHERE rank = 1 GROUP BY operator_id HAVING COUNT(DISTINCT day) = 2), repeated_access AS (SELECT operator_id FROM badge_entries WHERE room = 'Relay Room' GROUP BY operator_id HAVING COUNT(DISTINCT day) = 2) SELECT operators.name FROM repeated_senders JOIN repeated_access USING (operator_id) JOIN operators ON repeated_senders.operator_id = operators.id;",
+    "SELECT technicians.name, maintenance_logs.action FROM maintenance_logs JOIN technicians ON maintenance_logs.technician_id = technicians.id JOIN terminals ON maintenance_logs.terminal_id = terminals.id WHERE terminals.code = 'T-9' AND maintenance_logs.day < '2026-10-20' ORDER BY maintenance_logs.day DESC LIMIT 1;",
+    "SELECT operators.name AS operator, technicians.name AS technician, COUNT(*) AS calls FROM calls JOIN operators ON calls.operator_id = operators.id JOIN technicians ON calls.technician_id = technicians.id WHERE calls.duration < 60 AND calls.day IN ('2026-10-20', '2026-10-21') GROUP BY operators.id, technicians.id HAVING COUNT(DISTINCT calls.day) = 2;",
+    "SELECT technicians.name, equipment_loans.item FROM equipment_loans JOIN technicians ON equipment_loans.technician_id = technicians.id WHERE equipment_loans.returned_at IS NULL AND equipment_loans.item LIKE '%signal bridge%';"
+  ]
 };
 
 const run=(query,tables)=>executeSql(query,tables,options=>initSqlJs({...options,locateFile:file=>`node_modules/sql.js/dist/${file}`}));
@@ -31,6 +57,17 @@ test('all fifteen cases have a valid solving query',async()=>{
   for(const item of cases){
     const rows=await run(queries[item.id],item.tables);
     assert.equal(matchesExpected(rows,item.expected),true,`solution failed for ${item.id}`);
+  }
+});
+
+test('every dossier lead can be discovered with SQL',async()=>{
+  for(const item of cases.filter(item=>item.investigation)){
+    assert.equal(dossierQueries[item.id].length,item.investigation.stages.length);
+    for(const [index,stage] of item.investigation.stages.entries()){
+      const rows=await run(dossierQueries[item.id][index],item.tables);
+      assert.equal(matchesExpected(rows,stage.expected),true,`${item.id} lead ${index+1} failed`);
+    }
+    for(const field of item.investigation.accusation.fields)assert.ok(field.options.includes(item.investigation.accusation.answer[field.key]));
   }
 });
 
@@ -67,6 +104,25 @@ test('SQL reference entries are available in English and Spanish',()=>{
     assert.ok(item.description.en);
     assert.ok(item.description.es);
   }
+});
+
+test('.tables lists the current case tables without exposing their columns',async()=>{
+  const item=cases.find(entry=>entry.id==='last-signal');
+  const rows=await run('.tables',item.tables);
+  assert.deepEqual(rows,Object.keys(item.tables).sort().map(table=>({table})));
+  assert.equal(rows.some(row=>Object.hasOwn(row,'columns')),false);
+});
+
+test('dossier rules remain independent from the interface',()=>{
+  const progress={dossiers:{}};
+  const state=getDossierState(progress,'sample');
+  const caseData={investigation:{stages:[{expected:[{id:7}]}]}};
+  assert.equal(advanceDossier(caseData,state,[{id:2}],matchesExpected),false);
+  assert.equal(state.stage,0);
+  assert.equal(advanceDossier(caseData,state,[{id:7}],matchesExpected),true);
+  assert.equal(state.stage,1);
+  assert.equal(accusationMatches({answer:{operator:'Inés',accomplice:'Marc'}},{operator:'Inés',accomplice:'Marc'}),true);
+  assert.equal(accusationMatches({answer:{operator:'Inés'}},{operator:'Jan'}),false);
 });
 
 test('write and multi-statement queries are blocked',()=>{

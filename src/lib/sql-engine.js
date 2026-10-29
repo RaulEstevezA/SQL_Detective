@@ -11,6 +11,7 @@ function typeFor(values){
 export function validateReadOnly(sql){
   const query=sql.trim();
   if(!query)throw new Error('EMPTY');
+  if(/^\.tables\s*;?$/i.test(query))return '.tables';
   if(!/^(SELECT|WITH)\b/i.test(query))throw new Error('READ_ONLY');
   if(WRITE_KEYWORDS.test(query))throw new Error('READ_ONLY');
   const statements=query.replace(/;\s*$/,'').split(';').filter(Boolean);
@@ -20,6 +21,7 @@ export function validateReadOnly(sql){
 
 export async function executeSql(sql,tables,initializer=null){
   const query=validateReadOnly(sql);
+  if(query==='.tables')return Object.keys(tables).sort().map(table=>({table}));
   const resolvedInitializer=typeof initializer==='function'?initializer:await globalThis.sqlEngineReady;
   if(typeof resolvedInitializer!=='function')throw new Error('ENGINE');
   const scriptUrl=globalThis.document?.querySelector('[data-sql-engine]')?.src;
