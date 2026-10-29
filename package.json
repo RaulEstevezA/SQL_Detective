@@ -1,0 +1,1 @@
+{"name":"sql-detective","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node scripts/serve.mjs","test":"node --test","build":"node scripts/build.mjs","check":"npm test && npm run build"},"dependencies":{"sql.js":"^1.13.0"}}

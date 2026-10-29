@@ -1,0 +1,58 @@
+name: Deploy game
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/deploy-web.yml'
+  workflow_dispatch:
+concurrency:
+  group: deploy-sql-detective
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test and build
+        run: |
+          npm ci
+          npm run check
+      - name: Check deployment token
+        env:
+          PORTFOLIO_DEPLOY_TOKEN: ${{ secrets.PORTFOLIO_DEPLOY_TOKEN }}
+        run: test -n "$PORTFOLIO_DEPLOY_TOKEN" || (echo 'Add PORTFOLIO_DEPLOY_TOKEN in repository Actions secrets.' && exit 1)
+      - name: Check out personal website
+        uses: actions/checkout@v4
+        with:
+          repository: RaulEstevezA/RaulEstevezA.github.io
+          token: ${{ secrets.PORTFOLIO_DEPLOY_TOKEN }}
+          path: site
+      - name: Copy game build
+        run: |
+          mkdir -p site/games/SQL_Detective
+          rsync -a --delete dist/ site/games/SQL_Detective/
+      - name: Publish when changed
+        working-directory: site
+        run: |
+          git add games/SQL_Detective
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "deploy: update games/SQL_Detective from SQL_Detective@${GITHUB_SHA}"
+          for attempt in 1 2 3; do
+            git push && exit 0
+            git pull --rebase
+          done
+          exit 1
