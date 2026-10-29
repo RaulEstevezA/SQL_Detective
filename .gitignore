@@ -1,0 +1,26 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Dependencias y builds
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# Entorno
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Archivos auxiliares del agente (notas, planes, borradores): nunca versionados
+local-data/
+CLAUDE.md
