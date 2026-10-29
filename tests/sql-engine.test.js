@@ -38,6 +38,15 @@ test('every case has a difficulty from zero to five stars',()=>{
   for(const item of cases)assert.equal(Number.isInteger(item.rating)&&item.rating>=0&&item.rating<=5,true);
 });
 
+test('every case has complete lore in English and Spanish',()=>{
+  for(const item of cases){
+    assert.equal(item.lore.en.length>=2,true,`missing English lore for ${item.id}`);
+    assert.equal(item.lore.es.length>=2,true,`missing Spanish lore for ${item.id}`);
+    assert.equal(item.lore.en.every(paragraph=>paragraph.length>80),true,`short English lore for ${item.id}`);
+    assert.equal(item.lore.es.every(paragraph=>paragraph.length>80),true,`short Spanish lore for ${item.id}`);
+  }
+});
+
 test('four and five star cases expose no hints or example query',()=>{
   for(const item of cases.filter(item=>item.rating>=4)){
     assert.deepEqual(item.hints,{en:[],es:[]});

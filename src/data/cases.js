@@ -1,6 +1,7 @@
 import {advancedCases} from './advanced-cases.js';
+import {caseLore} from './case-lore.js';
 
-export const cases = [
+const caseDefinitions = [
   {
     id:'missing-key', difficulty:'rookie', rating:0, concepts:['SELECT','WHERE'],
     title:{en:'The missing archive key',es:'La llave perdida del archivo'},
@@ -36,3 +37,5 @@ export const cases = [
   },
   ...advancedCases
 ];
+
+export const cases=caseDefinitions.map(item=>({...item,lore:caseLore[item.id]}));
