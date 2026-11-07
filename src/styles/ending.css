@@ -50,7 +50,8 @@
 
 .ending__stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  /* One row, with each column as wide as its text: the rank is much longer than the rest. */
+  grid-template-columns: repeat(5, auto);
   gap: var(--space-8);
   margin: 0;
 }
@@ -76,6 +77,12 @@
   flex-wrap: wrap;
   gap: var(--space-8);
   margin-top: var(--space-20);
+}
+
+@media (max-width: 768px) {
+  .ending__stats {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  }
 }
 
 @media (max-width: 600px) {
