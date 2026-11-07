@@ -1,1 +1,20 @@
-{"name":"sql-detective","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node scripts/serve.mjs","test":"node --test","build":"node scripts/build.mjs","check":"npm test && npm run build"},"dependencies":{"sql.js":"^1.13.0"}}
+{
+  "name": "sql-detective",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "lint": "oxlint",
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "check": "npm run lint && npm test && npm run build",
+    "solutions": "node scripts/export-solutions.mjs"
+  },
+  "dependencies": {
+    "sql.js": "^1.13.0"
+  },
+  "devDependencies": {
+    "oxlint": "^1.88.0"
+  }
+}
