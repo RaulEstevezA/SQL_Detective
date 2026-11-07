@@ -1,7 +1,8 @@
 /**
  * Common header of the personal website: the name on the left and the language selector
- * on the right. Its content is fixed by `components/navigation.md` in personal_web_style,
- * and only the main menu shows it. Game navigation does not belong here.
+ * on the right. It looks and behaves like the header of the website, although the selector
+ * uses buttons, as `components/navigation.md` in personal_web_style asks of new projects.
+ * Only the main menu shows it. Game navigation does not belong here.
  */
 
 import { localize } from '../../core/localize.js';

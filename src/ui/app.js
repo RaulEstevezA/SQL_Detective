@@ -60,12 +60,18 @@ export function startApp({ root, storage, store, loadSql }) {
       app.storageAvailable = store.save(app.progress) && app.storageAvailable;
     },
 
-    /** Changes the language, saves it for the website and renders the screen again. */
+    /**
+     * Changes the language and saves it for the website. As on the website, the player
+     * stays in the same place: same scroll position and same focus on the selector.
+     */
     setLanguage(language) {
+      const scrollPosition = globalThis.scrollY;
       app.language = language;
       saveLanguage(storage, language);
       syncDocument();
       app.navigate(current.name, current.params);
+      globalThis.scrollTo?.(0, scrollPosition);
+      root.querySelector('.language-switch__button[aria-pressed="true"]')?.focus({ preventScroll: true });
     },
 
     /** Erases the saved game. */
