@@ -31,14 +31,26 @@ const blockedStorage = {
   },
 };
 
-test('the language is inherited from the website and English is the fallback', () => {
-  assert.equal(readLanguage(memoryStorage({ lang: 'es' })), 'es');
-  assert.equal(readLanguage(memoryStorage({ lang: 'es-ES' })), 'es');
-  assert.equal(readLanguage(memoryStorage({ lang: 'en' })), 'en');
-  assert.equal(readLanguage(memoryStorage()), 'en');
-  assert.equal(readLanguage(memoryStorage({ 'sqldetective.language': 'es' })), 'en');
-  assert.equal(readLanguage(blockedStorage), 'en');
-  assert.equal(readLanguage(null), 'en');
+test('the language inherited from the website comes first, whatever the browser says', () => {
+  assert.equal(readLanguage(memoryStorage({ lang: 'es' }), 'en-US'), 'es');
+  assert.equal(readLanguage(memoryStorage({ lang: 'es-ES' }), 'en-US'), 'es');
+  assert.equal(readLanguage(memoryStorage({ lang: 'en' }), 'es-ES'), 'en');
+});
+
+test('without an inherited language the browser decides', () => {
+  assert.equal(readLanguage(memoryStorage(), 'es-ES'), 'es');
+  assert.equal(readLanguage(memoryStorage(), 'en-GB'), 'en');
+  assert.equal(readLanguage(memoryStorage({ lang: 'fr' }), 'es'), 'es');
+  assert.equal(readLanguage(memoryStorage({ 'sqldetective.language': 'en' }), 'es'), 'es');
+  assert.equal(readLanguage(blockedStorage, 'es'), 'es');
+  assert.equal(readLanguage(null, 'es'), 'es');
+});
+
+test('English is the default when neither gives a language of the game', () => {
+  assert.equal(readLanguage(memoryStorage(), 'fr-FR'), 'en');
+  assert.equal(readLanguage(memoryStorage({ lang: 'fr' }), 'de'), 'en');
+  assert.equal(readLanguage(blockedStorage, 'fr-FR'), 'en');
+  assert.equal(readLanguage(null, null), 'en');
 });
 
 test('the chosen language is saved where the website reads it', () => {
