@@ -10,7 +10,7 @@ Una novela negra interactiva para aprender SQL. Cada caso es un capítulo de una
 
 ## La historia
 
-Puerto Ceniza, noviembre de 1987. Lleva once días lloviendo. Eres quien acaba de llegar al Negociado de Registros, dos plantas por debajo de la Jefatura, a la mesa de Inés Bosch, «trasladada» hace once meses. Arden almacenes en el Barrio Viejo, sus expedientes desaparecen, y alguien te está dejando notas dentro de los datos.
+Puerto Ceniza, noviembre de 1987. Lleva once días lloviendo. Eres quien acaba de llegar al Archivo Central, dos plantas por debajo de la Jefatura, a la mesa de Inés Bosch, "trasladada" hace once meses. Arden almacenes en el Barrio Viejo, sus expedientes desaparecen, y alguien te está dejando notas dentro de los datos.
 
 ## Campaña
 

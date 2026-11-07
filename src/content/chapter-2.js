@@ -102,24 +102,24 @@ const harbourGateLogs = [
 export const chapter2 = {
   id: 2,
   title: bi('Pier Three', 'Muelle Tres'),
-  subtitle: bi('You follow a note from a woman who no longer works here, to a place you were not sent.', 'Sigues la nota de una mujer que ya no trabaja aquí, hasta un sitio al que nadie te ha mandado.'),
+  subtitle: bi('A note from a woman who no longer works here takes you somewhere nobody sent you.', 'La nota de una mujer que ya no trabaja aquí te lleva a un sitio al que nadie te ha mandado.'),
   prologue: {
     signal: bi('HARBOUR DISTRICT · NOVEMBER 1987 · 23:40', 'DISTRITO DEL PUERTO · NOVIEMBRE DE 1987 · 23:40'),
     title: bi('Everyone in this city works for the same man', 'En esta ciudad todos trabajan para el mismo hombre'),
     paragraphs: bi(
       [
-        'You take a printout from ATLAS for the first time, folded inside a newspaper, and go to the Central Station on your own time. It is the kind of thing that seems like a very bad idea to anyone who has been in the police for longer than you have, which means anyone.',
-        'At the piers the cranes never stop, and the name on their sides is the same one you saw stencilled on a crate lid: VENT. The tugs, the warehouses, the union hall. Oriol Vent has a new project too: Proyecto Faro, a shining new waterfront where the Old Quarter stands now. The model is on display at City Hall. In the model it never rains.',
+        'For the first time you take an ATLAS printout out of the building, folded inside a newspaper, and go to the Central Station on your own time. Anyone who has been in the police longer than you would call that a very bad idea, and that means everyone.',
+        'At the piers the cranes never stop, and they carry the same name you saw on the crate lid: VENT. So do the tugs, the warehouses and the union hall. Oriol Vent has a new project too: Proyecto Faro, a shining new waterfront where the Old Quarter stands now. The model is on display at City Hall. In the model it never rains.',
         'And then there are the fires. Nobody at headquarters connects them. It is not that they have looked and found nothing. Nobody has been asked to look.',
       ],
       [
-        'Sacas por primera vez un listado de ATLAS, doblado dentro de un periódico, y vas a la Estación Central fuera de tu horario. Es el tipo de cosa que parece muy mala idea a cualquiera que lleve en la policía más tiempo que tú, o sea, a todo el mundo.',
-        'En los muelles las grúas no paran, y el nombre de sus costados es el mismo que viste en la tapa de una caja: VENT. Los remolcadores, los almacenes, la sede del sindicato. Oriol Vent tiene además un proyecto: el Proyecto Faro, un paseo marítimo reluciente justo donde hoy está el Barrio Viejo. La maqueta se expone en el Ayuntamiento. En la maqueta nunca llueve.',
+        'Por primera vez sacas del edificio un listado de ATLAS, doblado dentro de un periódico, y vas a la Estación Central fuera de tu horario. A cualquiera que lleve en la policía más tiempo que tú le parecería muy mala idea, y eso es todo el mundo.',
+        'En los muelles las grúas no paran, y llevan pintado el mismo nombre que viste en la tapa de la caja: VENT. También los remolcadores, los almacenes y la sede del sindicato. Oriol Vent tiene además un proyecto: el Proyecto Faro, un paseo marítimo reluciente justo donde hoy está el Barrio Viejo. La maqueta se expone en el Ayuntamiento. En la maqueta nunca llueve.',
         'Y luego están los incendios. En Jefatura nadie los relaciona. No es que hayan mirado y no hayan encontrado nada. Es que a nadie le han pedido que mire.',
       ],
     ),
-    speaker: bi('MARTA QUIROGA · COMISARIA', 'MARTA QUIROGA · COMISARIA'),
-    quote: bi('“I have not asked you to do this. If anyone asks, I told you to go home. Now tell me what you found.”', '«Yo no te he pedido esto. Si alguien pregunta, te dije que te fueras a casa. Ahora, cuéntame qué has encontrado.»'),
+    speaker: bi('MARTA QUIROGA · INSPECTOR', 'MARTA QUIROGA · INSPECTORA'),
+    quote: bi('“I have not asked you to do this. If anyone asks, I told you to go home. Now tell me what you found.”', '"Yo no te he pedido esto. Si alguien pregunta, te dije que te fueras a casa. Ahora, cuéntame qué has encontrado."'),
     action: bi('Go down to the harbour', 'Bajar al puerto'),
   },
   missions: [
@@ -131,12 +131,12 @@ export const chapter2 = {
       location: bi('Central Station · Saturday · 06:20', 'Estación Central · Sábado · 06:20'),
       scene: bi(
         [
-          'The Central Station at dawn is cleaners, pigeons and a man asleep on a suitcase. The rental office lets you consult its records through the old link to ATLAS, in exchange for not asking why the rental office has a link to ATLAS.',
+          'At dawn the Central Station holds only cleaners, pigeons and a man asleep on a suitcase. The locker rental office lets you consult its records over an old line to ATLAS, as long as you do not ask why it has that line.',
           'Inés Bosch wrote: the active locker that nobody rents. A plain JOIN will not help: as you saw at the museum, a JOIN throws away whatever has no match, and “no match” is precisely what you are looking for this time.',
         ],
         [
-          'La Estación Central al amanecer son limpiadoras, palomas y un hombre dormido sobre una maleta. La oficina de alquiler te deja consultar sus registros por la vieja línea con ATLAS, a cambio de no preguntar por qué la oficina de alquiler tiene una línea con ATLAS.',
-          'Inés Bosch escribió: la taquilla activa que nadie alquila. Un JOIN normal no sirve: como viste en el museo, un JOIN tira lo que no tiene pareja, y esta vez «sin pareja» es precisamente lo que buscas.',
+          'Al amanecer, en la Estación Central solo hay limpiadoras, palomas y un hombre dormido sobre una maleta. La oficina de alquiler de taquillas te deja consultar sus registros por una vieja línea conectada a ATLAS, siempre que no preguntes por qué la tiene.',
+          'Inés Bosch escribió: la taquilla activa que nadie alquila. Un JOIN normal no sirve: como viste en el museo, un JOIN descarta las filas sin pareja, y esta vez "sin pareja" es precisamente lo que buscas.',
         ],
       ),
       tables: { lockers, contracts: lockerContracts, inspections: shuffleIntoLog(lockerInspections, 'locker_id') },
@@ -162,11 +162,11 @@ export const chapter2 = {
       closing: bi(
         [
           'The door of L-11 opens with the master key the cleaner lends you for a cigarette. The envelope is addressed to “The next one”. Inside there is a carbon copy of a manifest for Warehouse 9, a list of courier numbers and a line in that careful hand: “Count how many times they come. Honest people do not work at night with heavy boxes.”',
-          'There is also an old photograph of the Records Bureau staff, Christmas 1985. Inés Bosch is a small woman with her glasses on her head, laughing at something. Next to her, a much younger-looking Teo Ferrán is raising a paper cup in a toast.',
+          'There is also an old photograph of the Records Bureau staff, Christmas 1985. Inés Bosch is a small woman with her glasses on her head, laughing at something. Next to her, a Teo Ferrán who smiles far more than the one you know is raising a paper cup in a toast.',
         ],
         [
-          'La puerta de L-11 se abre con la llave maestra que la limpiadora te presta a cambio de un cigarrillo. El sobre va dirigido a «Quien venga después». Dentro hay una copia en papel carbón de un manifiesto del Almacén 9, una lista de números de mensajero y una línea con esa letra cuidadosa: «Cuenta cuántas veces vienen. La gente honrada no trabaja de noche con cajas pesadas».',
-          'También hay una foto antigua del personal del Negociado, Navidad de 1985. Inés Bosch es una mujer menuda con las gafas en la cabeza, riéndose de algo. A su lado, un Teo Ferrán con muchos menos años brinda con un vaso de papel.',
+          'La puerta de L-11 se abre con la llave maestra que la limpiadora te presta a cambio de un cigarrillo. El sobre va dirigido a "Quien venga después". Dentro hay una copia en papel carbón de un manifiesto del Almacén 9, una lista de números de mensajero y una línea con esa letra cuidadosa: "Cuenta cuántas veces vienen. La gente honrada no trabaja de noche con cajas pesadas".',
+          'También hay una foto antigua del personal del Archivo, Navidad de 1985. Inés Bosch es una mujer menuda con las gafas en la cabeza, riéndose de algo. A su lado, un Teo Ferrán mucho más sonriente que el que conoces brinda con un vaso de papel.',
         ],
       ),
     },
@@ -178,12 +178,12 @@ export const chapter2 = {
       location: bi('Warehouse 9 · Sunday · 16:00', 'Almacén 9 · Domingo · 16:00'),
       scene: bi(
         [
-          'The harbour keeps a record of each collection from its warehouses, because the harbour charges for each collection. Eighty-odd rows, a dozen courier accounts, mostly invoices and fish. You could read them one at a time, but Teo would notice, and so would your eyes.',
+          'The harbour keeps a record of each collection from its warehouses, because the harbour charges for each collection. Eighty-odd rows, a dozen courier accounts, mostly invoices and fish. You could read them one at a time, but it would take all night, and you would still miss something.',
           'WHERE filters rows before they are grouped. There is another clause that filters afterwards, when you already have the counts in your hands. It is the difference between asking “who came at night?” and “who keeps coming?”. Tonight you need to ask both.',
         ],
         [
-          'El puerto lleva registro de cada recogida en sus almacenes, porque el puerto cobra cada recogida. Unas ochenta filas, una docena de cuentas de mensajero, casi todo facturas y pescado. Podrías leerlas una a una, pero Teo se daría cuenta, y tus ojos también.',
-          'WHERE filtra las filas antes de agruparlas. Hay otra cláusula que filtra después, cuando ya tienes los recuentos en la mano. Es la diferencia entre preguntar «¿quién vino de noche?» y «¿quién vuelve siempre?». Esta noche necesitas las dos.',
+          'El puerto lleva registro de cada recogida en sus almacenes, porque las cobra todas. Unas ochenta filas, una docena de cuentas de mensajero, casi todo facturas y pescado. Podrías leerlas una a una, pero tardarías toda la noche y aun así se te escaparía algo.',
+          'WHERE filtra las filas antes de agruparlas. Hay otra cláusula que filtra después, cuando ya tienes los recuentos en la mano. Es la diferencia entre preguntar "¿quién vino de noche?" y "¿quién vuelve siempre?". Esta noche necesitas las dos.',
         ],
       ),
       tables: { collections: shuffleIntoLog([...collectionFiller, ...warehouseNine], 'collected_at'), couriers },
@@ -194,7 +194,7 @@ export const chapter2 = {
           expected: [{ courier_id: 6, visits: 6 }, { courier_id: 9, visits: 5 }],
           hints: [bi("Filter the warehouse with WHERE, group with GROUP BY courier_id, and filter the groups with HAVING COUNT(*) >= 5.", "Filtra el almacén con WHERE, agrupa con GROUP BY courier_id y filtra los grupos con HAVING COUNT(*) >= 5.")],
           clue: bi('Two accounts visit Warehouse 9 far more than the rest: 6 and 9.', 'Dos cuentas visitan el Almacén 9 mucho más que las demás: la 6 y la 9.'),
-          reaction: bi('Teo, reading over your shoulder: Nine is the fish merchant. Everyone knows nine. The question is what six does for a living.', 'Teo, leyendo por encima de tu hombro: La nueve es el de la lonja. Todo el mundo conoce la nueve. La pregunta es de qué vive la seis.'),
+          reaction: bi('Teo, reading over your shoulder: Nine is the fish merchant; everyone knows him. The question is who six is.', 'Teo, leyendo por encima de tu hombro: La nueve es el pescadero de la lonja; la conoce todo el mundo. La pregunta es de quién es la seis.'),
         },
         {
           title: bi('Night and weight', 'Noche y peso'),
@@ -208,7 +208,7 @@ export const chapter2 = {
           briefing: bi('Return the name and company of courier 6.', 'Devuelve name y company del mensajero 6.'),
           expected: [{ name: 'Joel Serra', company: 'Faro Servicios' }],
           hints: [bi('A simple query on couriers. Do you recognise the name?', 'Una consulta sencilla sobre couriers. ¿Te suena el nombre?')],
-          clue: bi('Account 6 is Joel Serra, Faro Servicios: the same badge that blinded the laboratory.', 'La cuenta 6 es Joel Serra, de Faro Servicios: la misma credencial que dejó ciego al laboratorio.'),
+          clue: bi('Account 6 is Joel Serra, of Faro Servicios: the man whose badge entered the laboratory during the blackout.', 'La cuenta 6 es Joel Serra, de Faro Servicios: el hombre cuya credencial entró en el laboratorio durante el apagón.'),
         },
       ],
       closing: bi(
@@ -217,7 +217,7 @@ export const chapter2 = {
           'You reread it twice. It takes you a moment to understand what bothers you. Headquarters has not sent any paper for destruction since ATLAS arrived. Every page was supposed to be digitised and kept. So whose paper has been leaving the port at night, one ton at a time?',
         ],
         [
-          'Tonelada y media en cinco noches. ¿Qué tipo de contrabando pesa eso y necesita a un hombre que además puede entrar en un laboratorio forense? Vuelves al manifiesto del sobre. Las cajas están declaradas como «papel de archivo, para destrucción».',
+          'Tonelada y media en cinco noches. ¿Qué tipo de contrabando pesa eso y necesita a un hombre que además puede entrar en un laboratorio forense? Vuelves al manifiesto del sobre. Las cajas están declaradas como "papel de archivo, para destrucción".',
           'Lo relees dos veces. Tardas un momento en entender qué te molesta. Jefatura no manda papel a destruir desde que llegó ATLAS. Cada hoja debía digitalizarse y conservarse. Entonces, ¿de quién es el papel que sale de noche del puerto, tonelada a tonelada?',
         ],
       ),
@@ -226,15 +226,15 @@ export const chapter2 = {
       id: 'three-way-trail',
       rating: 3,
       concepts: ['MULTIPLE JOIN'],
-      title: bi('The van with no owner', 'La furgoneta sin dueño'),
+      title: bi('The van on the napkin', 'La furgoneta de la servilleta'),
       location: bi('Traffic Registry · Monday · 09:40', 'Registro de Tráfico · Lunes · 09:40'),
       scene: bi(
         [
-          'A customs officer on his way to retirement has given Quiroga a plate on a napkin: VX-204, a van he has seen too often at the Warehouse 9 gate, at hours when no van should have business there. He has not put it in his report. He has grandchildren, he says, and that is a complete sentence in this city.',
+          'A customs officer on his way to retirement has given Quiroga a plate on a napkin: VX-204, a van he has seen too often at the Warehouse 9 gate, at hours when no van should have business there. He has not put it in his report. “I have grandchildren,” he says, and in this city that explains everything.',
           'A plate is not a person, and a person is not a phone. The registry stores each thing in its own table so as not to repeat anything. That is good design, and it means you will have to walk the whole way: from the plate to the owner, from the owner to the phone, from the owner to the company.',
         ],
         [
-          'Un aduanero a punto de jubilarse ha dado a Quiroga una matrícula en una servilleta: VX-204, una furgoneta que ha visto demasiado en la puerta del Almacén 9, a horas en las que ninguna furgoneta pinta nada allí. No la ha puesto en su informe. Tiene nietos, dice, y en esta ciudad eso es una frase completa.',
+          'Un aduanero a punto de jubilarse ha dado a Quiroga una matrícula en una servilleta: VX-204, una furgoneta que ha visto demasiadas veces en la puerta del Almacén 9, a horas en las que ninguna furgoneta pinta nada allí. No la ha puesto en su informe. "Tengo nietos", dice, y en esta ciudad eso lo explica todo.',
           'Una matrícula no es una persona y una persona no es un teléfono. El registro guarda cada cosa en su tabla para no repetir nada. Es buen diseño, y significa que tendrás que recorrer el camino entero: de la matrícula al dueño, del dueño al teléfono, del dueño a la empresa.',
         ],
       ),
@@ -268,12 +268,12 @@ export const chapter2 = {
       ],
       closing: bi(
         [
-          'You dial 555-0103 from a phone booth, just to hear who answers. A man says “Vidal” in the voice of someone who has been told to expect a call. You hang up. A minute later the booth starts to ring. You do not pick it up, and you walk home by the long way, past the lit windows of the Old Quarter, which are fewer every month.',
+          'You dial 555-0103 from a phone booth, just to hear who answers. A man says “Vidal” in the voice of someone who has been told to expect a call. You hang up. A minute later the booth starts to ring. You do not pick it up. You walk home the long way, through the Old Quarter, where fewer windows are lit every month.',
           'The next morning there is a new memo on the board upstairs: all ATLAS queries must be logged by operator, “for reasons of efficiency”, by order of Commissioner Ricardo Salas. Teo pins it up himself, whistling. He does not look at you. “Efficiency,” he says.',
         ],
         [
-          'Marcas el 555-0103 desde una cabina, solo por oír quién contesta. Un hombre dice «Vidal» con la voz de alguien a quien han avisado de que llamarían. Cuelgas. Un minuto después la cabina empieza a sonar. No la coges, y vuelves a casa dando un rodeo, junto a las ventanas encendidas del Barrio Viejo, cada mes menos.',
-          'A la mañana siguiente hay una circular nueva en el tablón de arriba: todas las consultas de ATLAS se registrarán por operador, «por razones de eficiencia», por orden del comisario Ricardo Salas. La clava el propio Teo, silbando. No te mira. «Eficiencia», dice.',
+          'Marcas el 555-0103 desde una cabina, solo por oír quién contesta. Un hombre dice "Vidal" con la voz de alguien a quien han avisado de que llamarían. Cuelgas. Un minuto después la cabina empieza a sonar. No la coges. Vuelves a casa dando un rodeo por el Barrio Viejo, donde cada mes quedan menos ventanas encendidas.',
+          'A la mañana siguiente hay una circular nueva en el tablón de arriba: todas las consultas de ATLAS se registrarán por operador, "por razones de eficiencia", por orden del comisario Ricardo Salas. La clava el propio Teo, silbando. No te mira. "Eficiencia", dice.',
         ],
       ),
     },
@@ -285,12 +285,12 @@ export const chapter2 = {
       location: bi('Banco del Puerto · Tuesday · 13:15', 'Banco del Puerto · Martes · 13:15'),
       scene: bi(
         [
-          'Quiroga knows somebody at the Banco del Puerto: a compliance officer who owes her for something from 1979 that neither of them mentions. It gets you one night with the autumn transfers of Naviera Vent suppliers, on the condition that nobody ever knows and that the tape goes back before the morning shift.',
-          'The trouble with big amounts is that “big” is an opinion. You need something a judge cannot argue with, such as “more than three times the average”. And the average should not be something you work out on paper and type in, because ATLAS can do it itself, inside the same question.',
+          'Quiroga knows somebody at the Banco del Puerto: a compliance officer who has owed her a favour since 1979, and neither of them talks about it. It gets you one night with the autumn transfers of Naviera Vent suppliers, on the condition that nobody ever knows and that the tape goes back before the morning shift.',
+          'The trouble with big amounts is that “big” is an opinion. You need something a judge cannot argue with, such as “more than three times the average”. And you do not need to work out the average on paper and type it in: ATLAS can calculate it inside the same query.',
         ],
         [
-          'Quiroga conoce a alguien en el Banco del Puerto: un responsable de cumplimiento que le debe algo de 1979 de lo que ninguno de los dos habla. Eso te da una noche con las transferencias de otoño de los proveedores de Naviera Vent, con la condición de que nadie lo sepa nunca y de que la cinta vuelva antes del turno de mañana.',
-          'El problema de los importes grandes es que «grande» es una opinión. Necesitas algo que un juez no pueda discutir, como «más de tres veces la media». Y la media no debería ser algo que calculas en papel y tecleas, porque ATLAS puede hacerlo sola, dentro de la misma pregunta.',
+          'Quiroga conoce a alguien en el Banco del Puerto: un jefe de control interno que le debe un favor desde 1979, y ninguno de los dos habla de ello. Eso te da una noche con las transferencias de otoño de los proveedores de Naviera Vent, con la condición de que nadie lo sepa nunca y de que la cinta vuelva antes del turno de mañana.',
+          'El problema de los importes grandes es que "grande" es una opinión. Necesitas algo que un juez no pueda discutir, como "más de tres veces la media". Y no hace falta calcular la media en papel y teclearla: ATLAS puede hacerlo dentro de la misma consulta.',
         ],
       ),
       tables: {
@@ -311,7 +311,7 @@ export const chapter2 = {
           briefing: bi('Calculate the average amount of all transfers. Return it with the name average.', 'Calcula el importe medio de todas las transferencias. Devuélvelo con el nombre average.'),
           expected: [{ average: averageTransfer }],
           hints: [bi('SELECT AVG(amount) AS average FROM transfers;', 'SELECT AVG(amount) AS average FROM transfers;')],
-          clue: bi(`The average transfer is ${averageTransfer}.`, `La transferencia media es de ${averageTransfer}.`),
+          clue: bi(`The average transfer is ${averageTransfer.toLocaleString('en-GB', { useGrouping: 'always' })}.`, `La transferencia media es de ${averageTransfer.toLocaleString('es-ES', { useGrouping: 'always' })}.`),
         },
         {
           title: bi('Three times normal', 'Tres veces lo normal'),
@@ -330,13 +330,13 @@ export const chapter2 = {
       ],
       closing: bi(
         [
-          'The dates catch your eye before the amounts do. 15 September, 4 October, 22 October. You take out the sticky note with Vale Stone’s nights at the Miramar: 14 September, 3 October, 21 October. Every one of them, a fire, and the following day, a payment to a company whose brass plate is on a door that does not open.',
-          'The fourth date is 2 November. There is no transfer yet. The fourth warehouse burned on the 3rd, and a watchman named Bernat Ros, sixty-three, did not get out. He had not been told it was going to happen. Nobody had thought it was important.',
+          'The dates catch your eye before the amounts do. 15 September, 4 October, 22 October. You take out the sticky note with Vale Stone’s nights at the Miramar: 14 September, 3 October, 21 October. Each night at the Miramar is followed by a fire and, on that same day, by a payment to Faro Servicios, the company with the brass plate.',
+          'The fourth date is 2 November. There is no transfer yet. The fourth warehouse burned on the 3rd, and a watchman named Bernat Ros, sixty-three, did not get out. Nobody warned him. Nobody thought it mattered.',
           'Quiroga reads it in silence and then asks you, quite gently, whether you have told anybody at home where you work.',
         ],
         [
-          'Las fechas te saltan a la vista antes que los importes. 15 de septiembre, 4 de octubre, 22 de octubre. Sacas el papel con las noches de Vale Stone en el Miramar: 14 de septiembre, 3 de octubre, 21 de octubre. Todas y cada una, un incendio, y al día siguiente, un pago a una empresa cuya placa de latón está en una puerta que no se abre.',
-          'La cuarta fecha es el 2 de noviembre. Aún no hay transferencia. El cuarto almacén ardió el día 3, y un vigilante llamado Bernat Ros, de sesenta y tres años, no salió. A él no le habían avisado de que iba a pasar. A nadie le pareció importante.',
+          'Las fechas te saltan a la vista antes que los importes. 15 de septiembre, 4 de octubre, 22 de octubre. Sacas el papel con las noches de Vale Stone en el Miramar: 14 de septiembre, 3 de octubre, 21 de octubre. Cada noche en el Miramar va seguida de un incendio y, ese mismo día, de un pago a Faro Servicios, la empresa de la placa de latón.',
+          'La cuarta fecha es el 2 de noviembre. Aún no hay transferencia. El cuarto almacén ardió el día 3, y un vigilante llamado Bernat Ros, de sesenta y tres años, no salió de allí. Nadie le avisó. A nadie le pareció importante.',
           'Quiroga lo lee en silencio y luego te pregunta, con bastante suavidad, si le has contado a alguien en casa dónde trabajas.',
         ],
       ),
@@ -350,12 +350,12 @@ export const chapter2 = {
       location: bi('Pier 3 · Wednesday · 22:24', 'Muelle 3 · Miércoles · 22:24'),
       scene: bi(
         [
-          'Tonight you finally got ahead of them. Quiroga has a man on Pier 3 and at 22:05 the power dips across the whole dock, for four minutes, as it does more often than a port can explain. When the lights come back a crate marked for destruction has gone from the customs cage, and the seal is lying on the concrete.',
-          'This time there are no second chances. By morning, the Commissioner’s office will want the file. You have one night to reconstruct the operation from what the port has recorded: the incident reports, the gate, the vans, the phones. There is more than one blue van in this city, and more than one person calling Oriol Vent’s people. Answer one lead at a time. Do not guess.',
+          'Tonight you finally got ahead of them. Quiroga has a man on Pier 3 and at 22:05 the power fails across the whole dock, for four minutes, as it has been doing lately without anyone being able to explain why. When the lights come back a crate marked for destruction has gone from the customs cage, and the seal is lying on the concrete.',
+          'This time there are no second chances. By morning, the Commissioner’s office will want the file. You have one night to reconstruct the operation from what the port has recorded: the incident reports, the gate, the vans, the phones. There is more than one blue van in this city, and more than one driver making calls at odd hours. Answer one lead at a time. Do not guess.',
         ],
         [
-          'Esta noche por fin vais por delante. Quiroga tiene a un hombre en el muelle 3 y a las 22:05 la corriente cae en todo el dique, durante cuatro minutos, como pasa más a menudo de lo que un puerto puede explicar. Cuando vuelve la luz, una caja marcada para destrucción ha desaparecido de la jaula de aduanas, y el precinto está en el suelo.',
-          'Esta vez no hay segundas oportunidades. Por la mañana, el despacho del Comisario querrá el expediente. Tienes una noche para reconstruir la operación con lo que ha registrado el puerto: partes de incidencia, salidas, furgonetas, teléfonos. En esta ciudad hay más de una furgoneta azul, y más de una persona que llama a la gente de Oriol Vent. Una pista cada vez. No adivines.',
+          'Esta noche por fin vais por delante. Quiroga tiene a un hombre en el muelle 3 y a las 22:05 se va la luz en todo el dique, durante cuatro minutos, como viene pasando últimamente sin que nadie sepa explicar por qué. Cuando vuelve la luz, una caja marcada para destrucción ha desaparecido de la jaula de aduanas, y el precinto está en el suelo.',
+          'Esta vez no hay segundas oportunidades. Por la mañana, el despacho del Comisario querrá el expediente. Tienes una noche para reconstruir la operación con lo que ha registrado el puerto: partes de incidencia, salidas, furgonetas, teléfonos. En esta ciudad hay más de una furgoneta azul, y más de un conductor que hace llamadas a horas raras. Una pista cada vez. No adivines.',
         ],
       ),
       tables: {
@@ -416,7 +416,7 @@ export const chapter2 = {
         },
       ],
       accusation: {
-        intro: bi('Quiroga has one signature left before the Commissioner’s office wakes up. If this is wrong, it is not only your job.', 'A Quiroga le queda una firma antes de que el despacho del Comisario se despierte. Si esto está mal, no será solo tu puesto.'),
+        intro: bi('Quiroga can sign one arrest warrant before the Commissioner’s office opens. If you are wrong, more than your job is at stake.', 'Quiroga puede firmar una sola orden de detención antes de que abra el despacho del Comisario. Si te equivocas, no solo te juegas el puesto.'),
         fields: [
           { key: 'driver', label: bi('Who drove the van?', '¿Quién conducía la furgoneta?'), options: ['Joel Serra', 'Mina Costa', 'Roc Vidal', 'Sara Niu'] },
           { key: 'coordinator', label: bi('Who coordinated the operation?', '¿Quién coordinó la operación?'), options: ['Oriol Vent', 'Laia Nord', 'Pau Roca'] },
@@ -425,14 +425,14 @@ export const chapter2 = {
       },
       closing: bi(
         [
-          'Mina Costa is arrested at the customs bridge at six in the morning. By eleven she is out. Her lawyer costs more than the van. At noon the file on the Pier 3 crate goes upstairs, and at one it comes back down with a stamp: CLOSED BY ORDER OF THE COMMISSIONER. Oriol Vent gives an interview about the future of the waterfront, standing in front of the model, where it never rains.',
-          'But they found one box before it could leave. Quiroga opens it on your desk. It is not contraband. It is old insurance files from the Glass Gallery: the Vent family’s private museum, the place that will host this year’s charity gala. On the top page someone has circled a single line in pencil. The circle is small and careful.',
+          'Mina Costa is arrested at the customs bridge at six in the morning. By eleven she is out. Her lawyer costs more than the van. At noon the file on the Pier 3 crate goes up to the Commissioner’s office, and at one it comes back down with a stamp: CLOSED BY ORDER OF THE COMMISSIONER. Oriol Vent gives an interview about the future of the waterfront, standing in front of the model, where it never rains.',
+          'But that night they only took one crate, and another one with the same seal was left in the cage. Quiroga opens it on your desk. It is not contraband. It is old insurance files from the Glass Gallery: the Vent family’s private museum, the place that will host this year’s charity gala. On the top page someone has circled a single line in pencil. The stroke is small and careful, like the handwriting of Inés Bosch.',
           '“I did not see that,” Teo says, going past with the coffee. “And I did not tell you the gala is on the 12th.”',
         ],
         [
-          'Detienen a Mina Costa en el puente de aduanas a las seis de la mañana. A las once ya está fuera. Su abogado vale más que la furgoneta. A mediodía el expediente de la caja del muelle 3 sube, y a la una vuelve a bajar con un sello: ARCHIVADO POR ORDEN DEL COMISARIO. Oriol Vent da una entrevista sobre el futuro del paseo marítimo, de pie delante de la maqueta, donde nunca llueve.',
-          'Pero encontrasteis una caja antes de que saliera. Quiroga la abre en tu mesa. No es contrabando. Son viejos expedientes de seguros de la Galería de Cristal: el museo privado de la familia Vent, el lugar que acogerá la gala benéfica de este año. En la primera hoja, alguien ha rodeado a lápiz una sola línea. El círculo es pequeño y cuidadoso.',
-          '«Yo eso no lo he visto», dice Teo, pasando con el café. «Y tampoco te he dicho que la gala es el día 12.»',
+          'Detienen a Mina Costa en el puente de aduanas a las seis de la mañana. A las once ya está fuera. Su abogado vale más que la furgoneta. A mediodía el expediente de la caja del muelle 3 sube al despacho del Comisario, y a la una vuelve a bajar con un sello: ARCHIVADO POR ORDEN DEL COMISARIO. Oriol Vent da una entrevista sobre el futuro del paseo marítimo, de pie delante de la maqueta, donde nunca llueve.',
+          'Pero esa noche solo se llevaron una caja, y en la jaula quedó otra con el mismo precinto. Quiroga la abre en tu mesa. No es contrabando. Son viejos expedientes de seguros de la Galería de Cristal: el museo privado de la familia Vent, el lugar que acogerá la gala benéfica de este año. En la primera hoja, alguien ha rodeado a lápiz una sola línea. El trazo es pequeño y cuidadoso, como la letra de Inés Bosch.',
+          '"Yo eso no lo he visto", dice Teo, pasando con el café. "Y tampoco te he dicho que la gala es el día 12."',
         ],
       ),
     },

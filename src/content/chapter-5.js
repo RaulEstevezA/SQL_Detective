@@ -85,24 +85,24 @@ const earlierFires = fillerRows(501, 3, (random, index) => ({
 export const chapter5 = {
   id: 5,
   title: bi('The Last Signal', 'La última señal'),
-  subtitle: bi('You always knew whose handwriting it was. Now you find out who has been listening.', 'Siempre supiste de quién era la letra. Ahora descubres quién estaba escuchando.'),
+  subtitle: bi('You know who was leaving the notes. Now you need to know who is at the top, and where she is.', 'Ya sabes quién te dejaba las notas. Falta saber quién manda arriba del todo, y dónde está ella.'),
   prologue: {
     signal: bi('PUERTO CENIZA · DECEMBER 1987 · THE RAIN STOPS', 'PUERTO CENIZA · DICIEMBRE DE 1987 · DEJA DE LLOVER'),
-    title: bi('Everyone will ask who told you', 'Todos preguntarán quién te lo dijo'),
+    title: bi('Who is at the top', 'Quién está arriba del todo'),
     paragraphs: bi(
       [
         'It stops raining on the first of December. People go out in the street and look up, suspicious. In the Old Quarter there are three more fences, and the model at City Hall has a new little lighthouse on it.',
-        'You have a brass key, a strip of film, and a list of operators and dates written on the inside of your wrist. Teo has handed in his badge and sits at home, waiting for somebody to come for him, whoever gets there first. Quiroga has read your page without saying a word, and has then asked the only question that matters: “Who is at the top?”',
-        'A company that cleans buildings. A charity with a one-page report. A signal on an old frequency that nobody is authorised to use. Each of these is only a row, but you have learned by now how to put rows together. It is what you do. You are the best in the building at it, and you think there may be only one other person who ever was.',
+        'You have a brass key, a strip of film, and a list of operators and dates written on the inside of your wrist. Teo has handed in his badge and sits at home, waiting for someone to come for him: the police or the others, whoever gets there first. Quiroga has read your page without saying a word, and has then asked the only question that matters: “Who is at the top?”',
+        'A company that cleans buildings. A charity with a one-page report. A signal on an old frequency that nobody is authorised to use. Each of these is only a row, but you have learned by now how to put rows together. Nobody in the building does it better, and you think only one other person ever could.',
       ],
       [
         'Deja de llover el uno de diciembre. La gente sale a la calle y mira hacia arriba, con desconfianza. En el Barrio Viejo hay tres vallas más, y a la maqueta del Ayuntamiento le han puesto un farito nuevo.',
-        'Tienes una llave de latón, una tira de película y una lista de operadores y fechas escrita en la cara interna de la muñeca. Teo ha entregado su credencial y está en casa, esperando a que alguien venga a por él, quien llegue antes. Quiroga ha leído tu hoja sin decir nada, y luego ha hecho la única pregunta que importa: «¿Quién está arriba del todo?».',
-        'Una empresa que limpia edificios. Una entidad benéfica con una memoria de una página. Una señal en una frecuencia vieja que nadie está autorizado a usar. Cada una es solo una fila, pero ya sabes juntar filas. Es lo que haces. Eres quien mejor lo hace en el edificio, y crees que solo ha habido otra persona así.',
+        'Tienes una llave de latón, una tira de película y una lista de operadores y fechas escrita en la cara interna de la muñeca. Teo ha entregado su credencial y está en casa, esperando a que vengan a por él: la policía o los otros, quien llegue antes. Quiroga ha leído tu hoja sin decir nada, y luego ha hecho la única pregunta que importa: "¿Quién está arriba del todo?".',
+        'Una empresa que limpia edificios. Una entidad benéfica con una memoria de una página. Una señal en una frecuencia vieja que nadie está autorizado a usar. Cada una es solo una fila, pero ya sabes juntar filas. Nadie en el edificio lo hace mejor que tú, y crees que solo ha habido otra persona capaz.',
       ],
     ),
-    speaker: bi('MARTA QUIROGA · COMISARIA', 'MARTA QUIROGA · COMISARIA'),
-    quote: bi('“If you are right, I will have to arrest the man who signs my salary. So be right.”', '«Si tienes razón, tendré que detener al hombre que firma mi nómina. Así que ten razón.»'),
+    speaker: bi('MARTA QUIROGA · INSPECTOR', 'MARTA QUIROGA · INSPECTORA'),
+    quote: bi('“If you are right, I will have to arrest the man who signs my salary. So be right.”', '"Si tienes razón, tendré que detener al hombre que firma mi nómina. Así que ten razón."'),
     action: bi('Follow the chain', 'Seguir la cadena'),
   },
   missions: [
@@ -114,12 +114,12 @@ export const chapter5 = {
       location: bi('Companies Registry · 10:00', 'Registro Mercantil · 10:00'),
       scene: bi(
         [
-          'Faro Servicios: the brass plate on the door that does not open. Its owner is another company, and that one is owned by another. The Registry keeps it all in one simple table of two columns: a company and its parent. Whoever designed this chain counted on nobody having the patience to ask the same question four times.',
-          'You, however, do not need patience. SQL has a form of query that calls itself: a recursive CTE starts from a row, finds the next one using the rows it has just found, and keeps going until there are no more. You will not need to know how long the chain is. You just start pulling.',
+          'Faro Servicios, the company with the brass plate, belongs to another company, and that one to another. The Registry keeps it all in one simple table of two columns: a company and its parent. Whoever designed this chain counted on nobody having the patience to ask the same question four times.',
+          'You, however, do not need patience. SQL has a form of query that calls itself: a recursive CTE starts from a row, finds the next one using the rows it has just found, and keeps going until there are no more. You will not need to know how long the chain is. You just start pulling the thread.',
         ],
         [
-          'Faro Servicios: la placa de latón en la puerta que no se abre. Su dueña es otra empresa, y de esa es dueña otra. El Registro lo guarda todo en una tabla sencilla de dos columnas: una empresa y su matriz. Quien diseñó esta cadena contaba con que a nadie le quedara paciencia para hacer cuatro veces la misma pregunta.',
-          'Tú no necesitas paciencia. SQL tiene una forma de consulta que se llama a sí misma: un CTE recursivo parte de una fila, encuentra la siguiente usando las filas que acaba de encontrar y sigue hasta que no quedan más. No hace falta saber cuánto mide la cadena. Basta con empezar a tirar.',
+          'Faro Servicios, la empresa de la placa de latón, pertenece a otra empresa, y esa a otra. El Registro lo guarda todo en una tabla sencilla de dos columnas: una empresa y su matriz. Quien diseñó esta cadena contaba con que a nadie le quedara paciencia para hacer cuatro veces la misma pregunta.',
+          'Tú no necesitas paciencia. SQL tiene una forma de consulta que se llama a sí misma: un CTE recursivo parte de una fila, encuentra la siguiente usando las filas que acaba de encontrar y sigue hasta que no quedan más. No hace falta saber cuánto mide la cadena. Basta con empezar a tirar del hilo.',
         ],
       ),
       tables: {
@@ -153,7 +153,7 @@ export const chapter5 = {
           clue: bi('Four companies lead from a brass plate to Fundación Nereida: the owner of account K-1.', 'Cuatro empresas llevan de una placa de latón a la Fundación Nereida: la titular de la cuenta K-1.'),
         },
         {
-          title: bi('The person in the chair', 'La persona de la presidencia'),
+          title: bi('Who chairs the foundation', 'Quién preside la fundación'),
           briefing: bi('Who chairs Fundación Nereida? Return name and role.', '¿Quién preside la Fundación Nereida? Devuelve name y role.'),
           expected: [{ name: 'Ricardo Salas', role: 'Chair' }],
           hints: [bi("Filter foundation_board by foundation and by role = 'Chair'.", "Filtra foundation_board por foundation y por role = 'Chair'.")],
@@ -162,12 +162,12 @@ export const chapter5 = {
       ],
       closing: bi(
         [
-          'Ricardo Salas. The man who ordered every ATLAS query to be logged “for reasons of efficiency”, and stamped CLOSED on the case of the Pier 3 crate. The man whose signature is on your assignment letter. Below him in the same table, you note, the Secretary of the foundation is a judge of the provincial court. She has signed search warrants for you, twice.',
-          'You read it out to Quiroga on the back stairs. She does not say anything for a whole minute. Then she takes out a cigarette, lights it, in the building, under the sign. “Show me the money,” she says. “Names are for newspapers. I will need the money.”',
+          'Ricardo Salas. The man who ordered every ATLAS query to be logged “for reasons of efficiency”, and stamped CLOSED on the case of the Pier 3 crate. The man whose signature is on your assignment letter. In the same table, the Secretary of the foundation is Alba Grau, a judge of the provincial court. She has signed search warrants for you, twice.',
+          'You read it out to Quiroga on the back stairs. She does not say anything for a whole minute. Then she takes out a cigarette and lights it, inside the building, right under the no-smoking sign. “Show me the money,” she says. “Names are for newspapers. To arrest anyone, I need the money.”',
         ],
         [
-          'Ricardo Salas. El hombre que ordenó registrar todas las consultas de ATLAS «por razones de eficiencia» y selló ARCHIVADO en el caso de la caja del muelle 3. El hombre cuya firma está en tu carta de destino. Debajo, en la misma tabla, ves que la secretaria de la fundación es una jueza de la Audiencia Provincial. Te ha firmado dos órdenes de registro.',
-          'Se lo lees a Quiroga en la escalera de atrás. No dice nada durante un minuto entero. Luego saca un cigarrillo y lo enciende, dentro del edificio, debajo del cartel. «Enséñame el dinero», dice. «Los nombres son para los periódicos. Yo voy a necesitar el dinero.»',
+          'Ricardo Salas. El hombre que ordenó registrar todas las consultas de ATLAS "por razones de eficiencia" y selló ARCHIVADO en el caso de la caja del muelle 3. El hombre cuya firma está en tu orden de destino. En la misma tabla, la secretaria de la fundación es Alba Grau, jueza de la Audiencia Provincial. Te ha firmado dos órdenes de registro.',
+          'Se lo lees a Quiroga en la escalera de atrás. No dice nada durante un minuto entero. Luego saca un cigarrillo y lo enciende, dentro del edificio, justo debajo del cartel de prohibido fumar. "Enséñame el dinero", dice. "Los nombres son para los periódicos. Para detener a alguien necesito el dinero."',
         ],
       ),
     },
@@ -180,11 +180,11 @@ export const chapter5 = {
       scene: bi(
         [
           'The charity’s bank records and the Land Registry are the last two tapes the compliance officer will ever get you. He has asked for a transfer to Almería, and a different name, if at all possible. Fundación Nereida has received money throughout the year. You want to see it grow, row by row, as if you were watching a tide come in.',
-          'A window function can do more than look at a neighbour. SUM OVER adds the amount of each row to all of the previous ones, without collapsing them into a single figure. Then there are the dates: the question that matters is how many days pass between a fire and the sale of the burned land. julianday turns a date into a number, and numbers can be subtracted.',
+          'A window function can do more than look at a neighbour. SUM OVER adds the amount of each row to all of the previous ones, without merging them into a single figure. Then there are the dates: the question that matters is how many days pass between a fire and the sale of the burned land. julianday turns a date into a number, and numbers can be subtracted.',
         ],
         [
-          'Los registros bancarios de la fundación y el Registro de la Propiedad son las dos últimas cintas que te conseguirá el responsable de cumplimiento. Ha pedido traslado a Almería y, si es posible, otro nombre. La Fundación Nereida ha recibido dinero durante todo el año. Quieres verlo crecer, fila a fila, como quien ve subir la marea.',
-          'Una función de ventana hace algo más que mirar a la vecina. SUM OVER suma el importe de cada fila a todas las anteriores, sin colapsarlas en una sola cifra. Luego están las fechas: la pregunta que importa es cuántos días pasan entre un incendio y la venta del terreno quemado. julianday convierte una fecha en un número, y los números se pueden restar.',
+          'Los registros bancarios de la fundación y el Registro de la Propiedad son las dos últimas cintas que te conseguirá el jefe de control interno. Ha pedido traslado a Almería y, si es posible, otro nombre. La Fundación Nereida ha recibido dinero durante todo el año. Quieres verlo crecer, fila a fila, como quien ve subir la marea.',
+          'Una función de ventana hace algo más que mirar la fila vecina. SUM OVER suma el importe de cada fila a todas las anteriores, sin juntarlas en una sola cifra. Luego están las fechas: la pregunta que importa es cuántos días pasan entre un incendio y la venta del terreno quemado. julianday convierte una fecha en un número, y los números se pueden restar.',
         ],
       ),
       tables: { donations, fires, land_purchases: landPurchases },
@@ -195,18 +195,18 @@ export const chapter5 = {
           ordered: true,
           expected: runningTotals,
           hints: [bi('SUM(amount) OVER (ORDER BY given_on) AS running', 'SUM(amount) OVER (ORDER BY given_on) AS running')],
-          clue: bi(`Over the year the foundation received ${accumulated}.`, `A lo largo del año, la fundación recibió ${accumulated}.`),
+          clue: bi(`Over the year the foundation received ${accumulated.toLocaleString('en-GB')}.`, `A lo largo del año, la fundación recibió ${accumulated.toLocaleString('es-ES')}.`),
         },
         {
           title: bi('The first million', 'El primer millón'),
           briefing: bi('Find the donation with which the running total first reached 1,000,000. Return given_on and donor, in one row.', 'Encuentra la donación con la que el total acumulado alcanzó por primera vez 1.000.000. Devuelve given_on y donor, en una fila.'),
           expected: [{ given_on: millionReached.given_on, donor: millionDonor }],
           hints: [bi('Put the window in a CTE, then filter WHERE running >= 1000000, sort by date and LIMIT 1.', 'Mete la ventana en un CTE, filtra después con WHERE running >= 1000000, ordena por fecha y LIMIT 1.')],
-          clue: bi(`The foundation reached a million on ${millionReached.given_on}, with a donation from ${millionDonor}.`, `La fundación alcanzó el millón el ${millionReached.given_on}, con una donación de ${millionDonor}.`),
+          clue: bi(`The foundation reached a million on 4 August 1987, with a donation from ${millionDonor}.`, `La fundación alcanzó el millón el 4 de agosto de 1987, con una donación de ${millionDonor}.`),
         },
         {
           title: bi('From ashes to deeds', 'De las cenizas a las escrituras'),
-          briefing: bi('Find the land bought after a fire at the same address, within 30 days. Return address, buyer and the whole days between them as days.', 'Encuentra los terrenos comprados después de un incendio en la misma dirección, antes de 30 días. Devuelve address, buyer y los días enteros transcurridos como days.'),
+          briefing: bi('Find the land bought at the same address as a fire, within the 30 days after it. Return address, buyer and the whole days between them as days.', 'Encuentra los terrenos que ardieron y se compraron en los 30 días siguientes al incendio. Devuelve address, buyer y los días enteros transcurridos como days.'),
           expected: [
             { address: 'Calle del Cordel 4', buyer: 'Gestiones Bruma', days: 14 },
             { address: 'Plaza de la Sal 11', buyer: 'Gestiones Bruma', days: 8 },
@@ -219,12 +219,12 @@ export const chapter5 = {
       ],
       closing: bi(
         [
-          'Fire, payment, purchase. Fire, payment, purchase. The port authority donates to a charity, the charity owns a company, the company pays a man to burn down a block and then buys what remains for the price of a car. The land is worth two hundred times that the moment Proyecto Faro is approved. The permit committee meets in January.',
-          'You could take it to Quiroga now. But your hand keeps going to the radio. Teo said they were still broadcasting. In a whole month you have not checked the one thing you have been told again and again: that somebody was left out of all this on purpose, that she is out there, and that she has been talking to you the whole time.',
+          'Fire, payment, purchase. Again and again. Naviera Vent and the Harbour Commission donate to a charity, and the charity controls a chain of companies. One of them pays Joel Serra, the guest who called himself Vale Stone, to burn down a building. Another then buys the plot for the price of a car. The land will be worth two hundred times that the moment Proyecto Faro is approved. The permit committee meets in January.',
+          'You could take it to Quiroga now. But you keep thinking about what Teo said: that she is still broadcasting. You have not yet checked the most important thing of all: whether Inés Bosch is alive.',
         ],
         [
-          'Incendio, pago, compra. Incendio, pago, compra. La autoridad portuaria dona a una fundación, la fundación es dueña de una empresa, la empresa paga a un hombre para que queme una manzana y luego compra lo que queda por el precio de un coche. El terreno vale doscientas veces más en cuanto se apruebe el Proyecto Faro. La comisión de licencias se reúne en enero.',
-          'Podrías llevárselo ya a Quiroga. Pero la mano se te va a la radio. Teo dijo que seguían emitiendo. En todo un mes no has comprobado lo único que te han repetido una y otra vez: que alguien quedó fuera de todo esto a propósito, que está ahí fuera y que lleva todo este tiempo hablando contigo.',
+          'Incendio, pago, compra. Una y otra vez. Naviera Vent y la Comisión del Puerto donan a una fundación, y la fundación controla una cadena de empresas. Una de ellas paga a Joel Serra, el huésped que se hacía llamar Vale Stone, para que queme un edificio. Otra compra después el solar por el precio de un coche. El terreno valdrá doscientas veces más en cuanto se apruebe el Proyecto Faro. La comisión de licencias se reúne en enero.',
+          'Podrías llevárselo ya a Quiroga. Pero no dejas de pensar en lo que dijo Teo: que ella sigue emitiendo. Aún no has comprobado lo más importante de todo: si Inés Bosch está viva.',
         ],
       ),
     },
@@ -237,12 +237,12 @@ export const chapter5 = {
       location: bi('Coast Radio Station · 23:50', 'Radio Costera · 23:50'),
       scene: bi(
         [
-          'The Coast Radio Station is a concrete block on the cliffs north of the city, and its logs are the last thing anyone there thinks about. For two consecutive nights, just before midnight, an unknown signature has gone out on an isolated network, through a terminal that is not connected to anything. It is a very stubborn way of saying something to someone who knows how to listen.',
-          'The station logs are fragments: reports, relays, terminals, shifts, badges, calls, loans. Everything is mixed with routine, and access by itself proves nothing. You want two people: whoever operated it and whoever prepared the equipment. There are no hints. There will not be any more help, from anyone, and you know whose work this looks like. Follow the leads in order.',
+          'The Coast Radio Station is a concrete block on the cliffs north of the city, and nobody there ever looks at its logs. For two consecutive nights, just before midnight, a signal with an unknown signature has gone out on an isolated network, through a terminal that is not connected to anything. Someone keeps trying to tell something to whoever knows how to listen.',
+          'The station logs are fragments: reports, relays, terminals, shifts, badges, calls, loans. Everything is mixed with routine, and access by itself proves nothing. You want two people: whoever operated the signal and whoever prepared the equipment. There are no hints, and nobody else will help you now. And you already recognise this way of working. Follow the leads in order.',
         ],
         [
-          'La Radio Costera es un bloque de hormigón en los acantilados al norte de la ciudad, y sus registros son lo último en lo que piensa nadie allí. Dos noches seguidas, poco antes de medianoche, ha salido una firma desconocida por una red aislada, a través de un terminal que no está conectado a nada. Es una manera muy tozuda de decirle algo a alguien que sepa escuchar.',
-          'Los registros de la estación son fragmentos: partes, repetidores, terminales, turnos, credenciales, llamadas, préstamos. Todo mezclado con la rutina, y el acceso por sí solo no prueba nada. Quieres a dos personas: quien lo manejó y quien preparó el equipo. Ya no habrá más ayuda de nadie, y sabes a quién se parece este trabajo. Sigue las líneas por orden.',
+          'La Radio Costera es un bloque de hormigón en los acantilados al norte de la ciudad, y nadie allí mira nunca sus registros. Dos noches seguidas, poco antes de medianoche, ha salido una señal con una firma desconocida por una red aislada, a través de un terminal que no está conectado a nada. Alguien insiste en decirle algo a quien sepa escuchar.',
+          'Los registros de la estación son fragmentos: partes, repetidores, terminales, turnos, credenciales, llamadas, préstamos. Todo mezclado con la rutina, y el acceso por sí solo no prueba nada. Quieres a dos personas: quien manejó la señal y quien preparó el equipo. No hay ayudas, y ya nadie más te va a echar una mano. Y esta forma de trabajar ya la reconoces. Sigue las pistas por orden.',
         ],
       ),
       tables: {
@@ -336,7 +336,7 @@ export const chapter5 = {
         },
         {
           title: bi('The last traffic', 'El último tráfico'),
-          briefing: bi('For each incident day, rank only OPS transmissions by time and identify the final sender. Return day and name, ordered by day.', 'Para cada día del incidente, ordena solo las transmisiones OPS por hora e identifica a la última persona emisora. Devuelve day y name, ordenados por día.'),
+          briefing: bi('For each incident day, rank only OPS transmissions by time and identify the final sender. Return day and name, ordered by day.', 'Para cada día del incidente, ordena solo las transmisiones OPS por hora e identifica a la última persona que emitió. Devuelve day y name, ordenados por día.'),
           ordered: true,
           expected: [{ day: '1987-12-02', name: 'Inés Bosch' }, { day: '1987-12-03', name: 'Inés Bosch' }],
           clue: bi('Inés Bosch closed OPS traffic on both nights. She is alive, and working under her own name.', 'Inés Bosch cerró el tráfico OPS las dos noches. Está viva, y trabaja con su propio nombre.'),
@@ -367,7 +367,7 @@ export const chapter5 = {
         },
         {
           title: bi('The missing component', 'El componente que falta'),
-          briefing: bi('Check the equipment loans for an unreturned item that bridges a signal. Return the technician’s name and item.', 'Comprueba los préstamos de material para localizar un objeto sin devolver que puentee una señal. Devuelve el name del técnico e item.'),
+          briefing: bi('Check the equipment loans for an unreturned item that bridges a signal. Return the technician’s name and item.', 'Comprueba los préstamos de material para localizar un objeto sin devolver que sirva para puentear una señal. Devuelve el name del técnico e item.'),
           expected: [{ name: 'Marc Alba', item: bi('portable signal bridge', 'puente de señal portátil') }],
           clue: bi('Marc Alba still has the portable signal bridge.', 'Marc Alba aún tiene el puente de señal portátil.'),
         },
@@ -388,8 +388,8 @@ export const chapter5 = {
         ],
         [
           'Aparcas en la carretera del acantilado con las luces apagadas. A las 23:56 sintonizas la radio del coche en la frecuencia del terminal T-9 y durante un rato solo se oye el mar. Luego, una vocecita seca de mujer, la voz de alguien que lee una lista por milésima vez, dice un número de expediente. Y otro. 1014. 1015. 1027. Lee los siete. Lleva noche tras noche leyéndolos, añadiendo uno cada vez que desaparece otro expediente, para quien pudiera estar escuchando.',
-          'Pulsas el botón de transmitir. Tardas un momento en saber qué decir, y al final dices la verdad: «Aquí la mesa del Sótano Dos. Te dejaste la taza».',
-          'Hay un silencio larguísimo. Y luego, en una frecuencia abierta, contra todas las normas que enseñó jamás, alguien empieza a reírse. «Has tardado», dice Inés Bosch. «¿Tienes la llave?»',
+          'Pulsas el botón de transmitir. Tardas un momento en saber qué decir, y al final dices la verdad: "Aquí la mesa del Sótano Dos. Te dejaste la taza".',
+          'Hay un silencio larguísimo. Y luego, en una frecuencia abierta, contra todas las normas que enseñó jamás, alguien empieza a reírse. "Has tardado", dice Inés Bosch. "¿Tienes la llave?"',
         ],
       ),
     },
@@ -402,12 +402,12 @@ export const chapter5 = {
       location: bi('Room A-12 · Sunday · 04:00', 'Sala A-12 · Domingo · 04:00'),
       scene: bi(
         [
-          'It opens the first time. A brass key, an old lock, the cabinet from your first day. Inside there is a magnetic tape in a biscuit tin, with a label in careful handwriting: “Everything”. You load it into ATLAS at four in the morning with Inés Bosch on the car radio in your pocket. Quiroga stands at the door with her coat on, and her hand in the pocket of the coat.',
-          'Four sources, gathered in one year by the woman who sat at your desk: cargo manifests, bank records, phone taps and land deeds. Anyone can be mentioned once in a record: this city is small. A prosecutor will only be able to use the people who appear in at least three independent sources. Then you will have to decide what to do with them, and to whom you can still give it.',
+          'The brass key turns at the first try in the old lock of the cabinet from your first day. Inside there is a magnetic tape in a biscuit tin, with a label in careful handwriting: “Everything”. You load it into ATLAS at four in the morning with Inés Bosch on the other end of a portable radio. Quiroga watches the door with her coat on and one hand in her pocket.',
+          'Four sources, gathered in one year by the woman who sat at your desk: cargo manifests, bank records, phone taps and land deeds. Anyone can be mentioned once in a record: this city is small. A prosecutor will only be able to use the people who appear in at least three independent sources. Then you will have to decide what to do with them, and who you can still hand it over to.',
         ],
         [
-          'Se abre a la primera. Una llave de latón, una cerradura vieja, el armario de tu primer día. Dentro hay una cinta magnética en una lata de galletas, con una etiqueta de letra cuidadosa: «Todo». La cargas en ATLAS a las cuatro de la madrugada, con Inés Bosch en la radio del bolsillo. Quiroga está en la puerta con el abrigo puesto y la mano en el bolsillo del abrigo.',
-          'Cuatro fuentes, reunidas durante un año por la mujer que se sentaba a tu mesa: manifiestos de carga, registros bancarios, escuchas y escrituras. Cualquiera puede aparecer una vez en un registro: la ciudad es pequeña. Un fiscal solo podrá usar a quienes aparezcan en al menos tres fuentes independientes. Después tendrás que decidir qué hacer con ellos y a quién se lo puedes dar todavía.',
+          'La llave de latón abre a la primera la vieja cerradura del armario de tu primer día. Dentro hay una cinta magnética en una lata de galletas, con una etiqueta de letra cuidadosa: "Todo". La cargas en ATLAS a las cuatro de la madrugada, con Inés Bosch al otro lado de una radio portátil. Quiroga vigila la puerta con el abrigo puesto y una mano en el bolsillo.',
+          'Cuatro fuentes, reunidas durante un año por la mujer que se sentaba a tu mesa: manifiestos de carga, registros bancarios, escuchas y escrituras. Cualquiera puede aparecer una vez en un registro: la ciudad es pequeña. Un fiscal solo podrá usar a quienes aparezcan en al menos tres fuentes independientes. Después tendrás que decidir qué hacer con ellos y a quién puedes entregárselo todavía.',
         ],
       ),
       tables: { ...tapeTables, meetings, fires: [...earlierFires, ...fires] },
@@ -436,7 +436,7 @@ export const chapter5 = {
         },
       ],
       accusation: {
-        intro: bi('Quiroga does not take her eyes off the door. “Say them out loud. I want to hear it from someone who has checked.”', 'Quiroga no aparta la vista de la puerta. «Dilos en voz alta. Quiero oírlo de alguien que lo haya comprobado.»'),
+        intro: bi('Quiroga does not take her eyes off the door. “Say the names out loud. I want to hear them from someone who has checked.”', 'Quiroga no aparta la vista de la puerta. "Di los nombres en voz alta. Quiero oírlos de alguien que lo haya comprobado."'),
         fields: [
           { key: 'owner', label: bi('Who owned the plan?', '¿De quién era el plan?'), options: ['Oriol Vent', 'Eva Sanz', 'Laia Nord', 'Aina Puig'] },
           { key: 'protector', label: bi('Who protected it from the police?', '¿Quién lo protegía desde la policía?'), options: ['Marta Quiroga', 'Ricardo Salas', 'Teo Ferrán', 'Iris Vega'] },
@@ -446,11 +446,11 @@ export const chapter5 = {
       },
       decision: {
         title: bi('What do you do with the tape?', '¿Qué haces con la cinta?'),
-        intro: bi('The judge who should receive this is on the list. The man who should act on it is on the list. It is five in the morning. There is one tape, and three people who could take it.', 'La jueza que debería recibirla está en la lista. El hombre que debería actuar está en la lista. Son las cinco de la mañana. Hay una cinta y tres sitios adonde llevarla.'),
+        intro: bi('The judge who should receive this is on the list. The man who should act on it is on the list. It is five in the morning. There is one tape, and three ways out.', 'La jueza que debería recibirla está en la lista. El hombre que debería actuar está en la lista. Son las cinco de la mañana. Hay una cinta y tres salidas.'),
         options: [
           { id: 'press', label: bi('Give it to La Voz del Puerto', 'Dársela a La Voz del Puerto'), description: bi('Everything, on the front page, before anyone can stop it. Nothing can be buried afterwards, and much of it will never hold up in court.', 'Todo, en portada, antes de que nadie lo pueda parar. Después ya nada se podrá enterrar, y gran parte nunca se sostendrá en un juicio.') },
           { id: 'arrest', label: bi('Give it to Quiroga', 'Dársela a Quiroga'), description: bi('Arrests today, with the handful of officers she still trusts, and a prosecutor from the capital. By the book, and it might not be enough.', 'Detenciones hoy, con los pocos agentes de los que aún se fía, y un fiscal de la capital. Por el camino legal, y quizá no baste.') },
-          { id: 'deal', label: bi('Accept the Commissioner’s offer', 'Aceptar la oferta del Comisario'), description: bi('He called an hour ago. Head of the new Bureau, a clean file for Teo, and nobody else gets hurt. All you have to do is forget where you put the tin.', 'Llamó hace una hora. Jefatura del nuevo Negociado, un expediente limpio para Teo y que nadie más salga herido. Solo tienes que olvidar dónde has dejado la lata.') },
+          { id: 'deal', label: bi('Accept the Commissioner’s offer', 'Aceptar la oferta del Comisario'), description: bi('He called an hour ago. He offers you the running of the new Bureau, a clean record for Teo, and nobody else getting hurt. All you have to do is forget where you put the tin.', 'Llamó hace una hora. Te ofrece dirigir el nuevo Archivo, limpiar el expediente de Teo y que nadie más salga herido. Solo tienes que olvidar dónde has dejado la lata.') },
         ],
       },
       closing: bi(

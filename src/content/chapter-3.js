@@ -78,38 +78,38 @@ export const chapter3 = {
   subtitle: bi('The people who burn warehouses do not smell of smoke. They smell of very good cologne.', 'La gente que quema almacenes no huele a humo. Huele a muy buena colonia.'),
   prologue: {
     signal: bi('VENT FOUNDATION · 12 NOVEMBER 1987 · INVITATION ONLY', 'FUNDACIÓN VENT · 12 DE NOVIEMBRE DE 1987 · SOLO CON INVITACIÓN'),
-    title: bi('A party for the people who own the rain', 'Una fiesta para los dueños de la lluvia'),
+    title: bi('A party for the people who own the city', 'Una fiesta para los dueños de la ciudad'),
     paragraphs: bi(
       [
         'The Glass Gallery stands on the only hill in Puerto Ceniza: a greenhouse of steel and crystal built by the first Vent with the profits of the first shipping fraud anyone remembers. Once a year the family opens it for a charity gala. Everyone is there: the Mayor, the Commissioner, the judges, the bishop, and the bankers who lend to all of them.',
-        'You will not be there. People from the basement do not get invited, and Quiroga has made it clear that she would prefer you stayed alive and bored. But a gala produces bookings, invoices, insurance policies, taxis, phone calls and coat-check tickets, and all of it, sooner or later, ends up on a tape.',
-        'From down here you can see all those people much better than from the dance floor. You are beginning to enjoy that, and it is starting to worry you.',
+        'You will not be there. People from the basement do not get invited, and Quiroga has made it clear that she would rather have you bored than dead. But a gala produces bookings, invoices, insurance policies, taxis, phone calls and coat-check tickets, and all of it, sooner or later, ends up on a tape.',
+        'From down here, in the records, you can see all those people much better than from the dance floor. You are beginning to enjoy this work, and that worries you.',
       ],
       [
         'La Galería de Cristal se alza en la única colina de Puerto Ceniza: un invernadero de acero y cristal construido por el primer Vent con los beneficios del primer fraude naviero del que se tiene memoria. Una vez al año la familia lo abre para una gala benéfica. Va todo el mundo: la alcaldesa, el Comisario, los jueces, el obispo y los banqueros que les prestan a todos.',
-        'Tú no irás. A la gente del sótano no la invitan, y Quiroga ha dejado claro que te prefiere con vida y con aburrimiento. Pero una gala produce reservas, facturas, pólizas, taxis, llamadas y resguardos de guardarropa, y todo eso, tarde o temprano, acaba en una cinta.',
-        'Desde aquí abajo se ve a toda esa gente mucho mejor que desde la pista de baile. Empieza a gustarte, y eso empieza a preocuparte.',
+        'Tú no irás. A la gente del sótano no la invitan, y Quiroga ha dejado claro que te prefiere con vida, aunque te aburras. Pero una gala produce reservas, facturas, pólizas, taxis, llamadas y resguardos de guardarropa, y todo eso, tarde o temprano, acaba en una cinta.',
+        'Desde aquí abajo, en los registros, se ve a toda esa gente mucho mejor que desde la pista de baile. Este trabajo empieza a gustarte, y eso te preocupa.',
       ],
     ),
     speaker: bi('TEO FERRÁN · ARCHIVIST', 'TEO FERRÁN · ARCHIVERO'),
-    quote: bi('“I went to one of those galas, in ‘71. Carrying boxes. You know what rich people leave behind when they think nobody counts? Everything.”', '«Yo fui a una de esas galas, en el 71. Cargando cajas. ¿Sabes qué deja la gente rica cuando cree que nadie cuenta? Todo.»'),
-    action: bi('Start counting', 'Empezar a contar'),
+    quote: bi('“I went to one of those galas, in ‘71. Carrying boxes. You know what rich people leave behind when they think nobody is looking? Paper. A lot of paper.”', '"Yo fui a una de esas galas, en el 71. Cargando cajas. ¿Sabes qué deja la gente rica cuando cree que nadie mira? Papeles. Muchos papeles."'),
+    action: bi('Start looking', 'Empezar a buscar'),
   },
   missions: [
     {
       id: 'coded-risk',
       rating: 3,
       concepts: ['CASE', 'SUM'],
-      title: bi('The patient money', 'El dinero paciente'),
+      title: bi('The money that travels', 'El dinero que viaja'),
       location: bi('Banco del Puerto, Fraud Desk · 13:00', 'Banco del Puerto, Sección de Fraude · 13:00'),
       scene: bi(
         [
-          'Quiroga’s compliance officer has come back with a fresh tape, and looks ten years older. Someone has been withdrawing money for the gala in small, careful amounts, some of it abroad. The bank’s own rule for this, which it has written down and has never once applied, says that foreign withdrawals count double.',
-          '“Do the arithmetic the bank did not want to do,” Quiroga says. A rule like this cannot be written with WHERE, because you do not want to discard the domestic withdrawals. You want to weigh each row differently. The answer belongs in the SELECT itself.',
+          'Quiroga’s compliance officer has come back with a fresh tape, looking ten years older. In the weeks before the gala, someone has been withdrawing money in small amounts, some of it abroad. Under one of the bank’s own rules, written down but never applied, foreign withdrawals count double.',
+          '“Do the arithmetic the bank did not want to do,” Quiroga says. A rule like this cannot be written with WHERE, because you do not want to discard the domestic withdrawals. You want each row to count differently. The answer belongs in the SELECT itself.',
         ],
         [
-          'El responsable de cumplimiento de Quiroga vuelve con una cinta nueva y diez años más. Alguien ha ido retirando dinero para la gala en cantidades pequeñas y cuidadosas, parte en el extranjero. La propia norma del banco, que tiene por escrito y jamás ha aplicado, dice que las retiradas en el extranjero cuentan el doble.',
-          '«Haz las cuentas que el banco no quiso hacer», dice Quiroga. Una regla así no se escribe con WHERE, porque no quieres descartar las retiradas nacionales. Quieres pesar cada fila de forma distinta. La respuesta va en el propio SELECT.',
+          'El jefe de control interno vuelve con una cinta nueva y cara de haber envejecido diez años. En las semanas previas a la gala, alguien ha ido retirando dinero en cantidades pequeñas, parte en el extranjero. Según una norma del propio banco, que está por escrito pero nunca se ha aplicado, las retiradas en el extranjero cuentan el doble.',
+          '"Haz las cuentas que el banco no quiso hacer", dice Quiroga. Una regla así no se escribe con WHERE, porque no quieres descartar las retiradas nacionales. Quieres que cada fila cuente de forma distinta. La respuesta va en el propio SELECT.',
         ],
       ),
       tables: {
@@ -126,7 +126,7 @@ export const chapter3 = {
           briefing: bi("Domestic withdrawals have country 'ES'. Use CASE to create a column scope with the values 'domestic' or 'foreign', and return scope and the count as total for each one.", "Las retiradas nacionales tienen country 'ES'. Usa CASE para crear una columna scope con los valores 'domestic' o 'foreign', y devuelve scope y el recuento como total de cada uno."),
           expected: [{ scope: 'domestic', total: withdrawals.length - foreignWithdrawals }, { scope: 'foreign', total: foreignWithdrawals }],
           hints: [bi("CASE WHEN country = 'ES' THEN 'domestic' ELSE 'foreign' END AS scope", "CASE WHEN country = 'ES' THEN 'domestic' ELSE 'foreign' END AS scope"), bi('You can GROUP BY the alias: GROUP BY scope.', 'Se puede agrupar por el alias: GROUP BY scope.')],
-          clue: bi(`Only ${foreignWithdrawals} withdrawals were made abroad, and they all belong to three accounts.`, `Solo ${foreignWithdrawals} retiradas se hicieron en el extranjero, y todas son de tres cuentas.`),
+          clue: bi(`Only ${foreignWithdrawals} withdrawals were made abroad, from just two accounts: K-1 and Z-4.`, `Solo ${foreignWithdrawals} retiradas se hicieron en el extranjero, desde solo dos cuentas: K-1 y Z-4.`),
         },
         {
           title: bi('The weighted total', 'El total ponderado'),
@@ -145,11 +145,11 @@ export const chapter3 = {
       closing: bi(
         [
           'Fundación Nereida has a registered address at a notary’s office, an annual report of one page, and no visible charitable activity apart from withdrawing money in Geneva and Lisbon. You note the name down and keep going. It does not seem important yet.',
-          'That night you find someone has been through your desk. Nothing is missing, and everything has been put back very nearly in its place. Inés Bosch’s mug has been rotated a quarter turn, with the handle now on the left. You turn it back. You do not mention it to anyone, and then it occurs to you that this is how it starts.',
+          'That night you find someone has been through your desk. Nothing is missing, and everything has been put back very nearly in its place. Inés Bosch’s mug has been rotated a quarter turn, with the handle now on the left. You put it back as it was. You tell nobody. And then you realise that you no longer trust anyone.',
         ],
         [
           'La Fundación Nereida tiene domicilio en una notaría, una memoria anual de una página y ninguna actividad benéfica visible aparte de retirar dinero en Ginebra y Lisboa. Apuntas el nombre y sigues. Aún no parece importante.',
-          'Esa noche descubres que alguien ha estado en tu mesa. No falta nada y todo está casi exactamente en su sitio. La taza de Inés Bosch ha girado un cuarto de vuelta y ahora tiene el asa a la izquierda. Le das la vuelta. No se lo dices a nadie, y entonces se te ocurre que así es como empieza.',
+          'Esa noche descubres que alguien ha estado en tu mesa. No falta nada y todo está casi exactamente en su sitio. La taza de Inés Bosch ha girado un cuarto de vuelta y ahora tiene el asa a la izquierda. La vuelves a dejar como estaba. No se lo cuentas a nadie. Y entonces te das cuenta de que ya no te fías de nadie.',
         ],
       ),
     },
@@ -157,16 +157,16 @@ export const chapter3 = {
       id: 'inside-contact',
       rating: 3,
       concepts: ['SELF JOIN'],
-      title: bi('The phone call between floors', 'La llamada entre plantas'),
+      title: bi('The phone call that should not exist', 'La llamada que no debería existir'),
       location: bi('Glass Gallery · Gala night · 19:32', 'Galería de Cristal · Noche de gala · 19:32'),
       scene: bi(
         [
-          'It is the night of the gala. At 19:32 the switchboard records a call of twenty-eight seconds inside the gallery. Staff telephones log everything because Oriol Vent has never trusted his staff, and he is about to be proved right. A contact at the telephone company passes you the log, in exchange for something else nobody mentions.',
-          'Both ends of a call point to the same table: staff. A row in calls has a caller_id and a receiver_id, and each needs a name. Even managers are in that table, as a number pointing to another row of the very same table. You will have to read it twice at once, as if it were two different tables.',
+          'It is the night of the gala. At 19:32 the switchboard records a call of twenty-eight seconds inside the gallery. Staff telephones log everything because Oriol Vent has never trusted his staff, and he is about to be proved right. A contact at the telephone company passes the log to Quiroga, no questions asked.',
+          'Both ends of a call point to the same table: staff. A row in calls has a caller_id and a receiver_id, and each needs a name. Each employee’s manager is also a number pointing to another row of that same table. You will have to join the table to itself, as if it were two different tables.',
         ],
         [
-          'Es la noche de la gala. A las 19:32 la centralita registra una llamada de veintiocho segundos dentro de la galería. Los teléfonos del personal lo anotan todo, porque Oriol Vent nunca se ha fiado de su personal, y está a punto de tener razón. Un contacto en la telefónica te pasa el registro, a cambio de algo más de lo que nadie habla.',
-          'Los dos extremos de una llamada apuntan a la misma tabla: staff. Una fila de calls tiene caller_id y receiver_id, y cada uno necesita un nombre. Hasta los jefes están en esa tabla, como un número que apunta a otra fila de la misma tabla. Tendrás que leerla dos veces a la vez, como si fueran dos tablas distintas.',
+          'Es la noche de la gala. A las 19:32 la centralita registra una llamada de veintiocho segundos dentro de la galería. Los teléfonos del personal lo anotan todo, porque Oriol Vent nunca se ha fiado de su personal, y esta noche va a tener razón. Un contacto en la telefónica le pasa el registro a Quiroga, sin hacer preguntas.',
+          'Los dos extremos de una llamada apuntan a la misma tabla: staff. Una fila de calls tiene caller_id y receiver_id, y cada uno necesita un nombre. Además, el jefe de cada empleado es un número que apunta a otra fila de esa misma tabla. Tendrás que unir la tabla consigo misma, como si fueran dos tablas distintas.',
         ],
       ),
       tables: { staff: galleryStaff, calls: galleryCalls },
@@ -201,11 +201,11 @@ export const chapter3 = {
       closing: bi(
         [
           'At 20:04 the display case of the Crystal Miniature of the Port, the centrepiece of the evening, is found empty. Nobody heard anything. The Mayor went on with her speech. Oriol Vent smiled like a man who is thinking about something else.',
-          'Biel Roig, the conservator, had been told by the Head of Security to disconnect the sensor on that case “for cleaning”. He thought it was a strange moment for it. He also has three children and a mortgage with Banco del Puerto, so he did it.',
+          'Biel Roig, the conservator, had been told by the Head of Security to disconnect the sensor on that case “for cleaning”. He thought it was a strange moment for it. But he has three children and a mortgage with Banco del Puerto, so he did it.',
         ],
         [
           'A las 20:04 aparece vacía la vitrina de la Miniatura de Cristal del Puerto, la pieza central de la velada. Nadie oyó nada. La alcaldesa siguió con su discurso. Oriol Vent sonreía como quien está pensando en otra cosa.',
-          'A Biel Roig, el restaurador, la jefa de seguridad le había dicho que desconectara el sensor de esa vitrina «para limpiarla». Le pareció un momento raro. También tiene tres hijos y una hipoteca con el Banco del Puerto, así que lo hizo.',
+          'A Biel Roig, el restaurador, la jefa de seguridad le había dicho que desconectara el sensor de esa vitrina "para limpiarla". Le pareció un momento raro. Pero tiene tres hijos y una hipoteca con el Banco del Puerto, así que lo hizo.',
         ],
       ),
     },
@@ -217,11 +217,11 @@ export const chapter3 = {
       location: bi('Central Station · Gala night · 23:10', 'Estación Central · Noche de gala · 23:10'),
       scene: bi(
         [
-          'After the theft a guest arrived whom nobody expected: someone who came all the way from the capital on the last train to examine an empty display case. The taxi drivers’ cooperative logs each pick-up, and the station logs each arrival. Between the two there may be a name.',
+          'After the theft a guest arrived whom nobody expected: someone who came all the way from the capital on the last train to examine an empty display case. The taxi drivers’ cooperative logs each pick-up, and the station logs each arrival. Crossing the two logs may turn up a name.',
           'This question has too many steps to write in one go. A WITH clause lets you give a name to an intermediate result and work from there, the way Teo fills in the easy words of a crossword first. Times are stored as text, but strftime can turn them into seconds, and seconds can be subtracted.',
         ],
         [
-          'Después del robo llegó alguien a quien nadie esperaba: una persona que vino desde la capital en el último tren para examinar una vitrina vacía. La cooperativa de taxis anota cada recogida y la estación, cada llegada. Entre ambas puede haber un nombre.',
+          'Después del robo llegó alguien a quien nadie esperaba: una persona que vino desde la capital en el último tren para examinar una vitrina vacía. La cooperativa de taxis anota cada recogida y la estación, cada llegada. Al cruzar los dos registros puede salir un nombre.',
           'Esta pregunta tiene demasiados pasos para escribirla de una vez. La cláusula WITH permite poner nombre a un resultado intermedio y seguir desde ahí, igual que Teo rellena primero las palabras fáciles del crucigrama. Las horas se guardan como texto, pero strftime las convierte en segundos, y los segundos se pueden restar.',
         ],
       ),
@@ -265,7 +265,7 @@ export const chapter3 = {
         },
         {
           title: bi('Someone in a hurry', 'Alguien con prisa'),
-          briefing: bi('Someone who knew where they were going would not wait: at most 20 minutes, with destination Glass Gallery. Return name and minutes.', 'Quien sabe adónde va no espera: como mucho 20 minutos, con destino Glass Gallery. Devuelve name y minutes.'),
+          briefing: bi('Someone who knows where they are going does not wait. Find whoever took at most 20 minutes to get a taxi to Glass Gallery. Return name and minutes.', 'Quien sabe adónde va no espera. Busca a quien tardó como mucho 20 minutos en coger un taxi a Glass Gallery. Devuelve name y minutes.'),
           expected: [{ name: 'Eva Sanz', minutes: 12 }],
           hints: [bi('Hugo Rey waited too long and Sol Riba did not come on the N7. Add both filters to the final SELECT, keeping the destination in the CTE.', 'Hugo Rey esperó demasiado y Sol Riba no vino en el N7. Añade los dos filtros al SELECT final, conservando destination en el CTE.')],
           clue: bi('Eva Sanz went straight from the N7 to the Glass Gallery, in twelve minutes.', 'Eva Sanz fue directa del N7 a la Galería de Cristal, en doce minutos.'),
@@ -278,7 +278,7 @@ export const chapter3 = {
         ],
         [
           'Eva Sanz es tasadora de arte, de las más respetadas del país. Su firma aparece en la valoración de seguro de la Miniatura de Cristal. Una aseguradora suele mandar a alguien a mirar un siniestro al cabo de unas semanas. Ella llegó en cuatro horas, con los formularios del parte ya rellenos, salvo la fecha.',
-          'Quiroga deja la hoja. «Ya iba en el tren cuando vaciaron la vitrina. No se coge el último tren porque han robado algo. Se coge porque sabes que lo van a robar.»',
+          'Quiroga deja la hoja. "Ya iba en el tren cuando vaciaron la vitrina. No se coge el último tren porque han robado algo. Se coge porque sabes que lo van a robar."',
         ],
       ),
     },
@@ -287,14 +287,14 @@ export const chapter3 = {
       rating: 4,
       concepts: ['EXCEPT', 'UNION'],
       title: bi('Works that do not exist', 'Obras que no existen'),
-      location: bi('Records Bureau · 02:30', 'Negociado de Registros · 02:30'),
+      location: bi('Records Bureau · 02:30', 'Archivo Central · 02:30'),
       scene: bi(
         [
-          'The crate from Pier 3 had the policy of the gallery inside. The public catalogue of the gallery is printed on heavy paper and sold in the shop. Between one list and the other there should be no difference, and you will notice that you can no longer say that kind of sentence without smiling.',
+          'The crate from Pier 3 had the policy of the gallery inside. The public catalogue of the gallery is printed on heavy paper and sold in the shop. Between one list and the other there should be no difference. By now you know what that kind of sentence is worth in this city.',
           'A JOIN compares row by row. This calls for a different tool: take a whole list, subtract another whole list and see what is left. Teo has left a cold coffee on your desk and gone home. He has never left before you did. You try not to think about it.',
         ],
         [
-          'La caja del muelle 3 traía dentro la póliza de la galería. El catálogo público se imprime en papel grueso y se vende en la tienda. Entre una lista y otra no debería haber ninguna diferencia, y notarás que ya no puedes decir frases así sin sonreír.',
+          'La caja del muelle 3 traía dentro la póliza de la galería. El catálogo público se imprime en papel grueso y se vende en la tienda. Entre una lista y otra no debería haber ninguna diferencia. A estas alturas ya sabes lo que vale una frase así en esta ciudad.',
           'Un JOIN compara fila a fila. Esto pide otra herramienta: coger una lista entera, restarle otra lista entera y ver qué queda. Teo te ha dejado un café frío en la mesa y se ha ido a casa. Nunca se había ido antes que tú. Intentas no darle vueltas.',
         ],
       ),
@@ -331,13 +331,13 @@ export const chapter3 = {
       closing: bi(
         [
           'GG-901 is the Crystal Miniature of the Port. It is a piece which, according to the gallery’s own catalogue, has never existed. It nevertheless spent the whole of gala night in a lit case in the middle of the room, with half the city admiring it, and now 220,000 are about to be paid out for the theft of it.',
-          'So the theft was the plan. An inside job, an arranged sensor, an appraiser on the train. There is only one problem, and you see it at around three in the morning: if the theft was the plan, who has the miniature? Because the Head of Security has just reported it, and for the first time this evening, she looks frightened.',
-          'Somebody got there first.',
+          'So the theft was the plan: an inside job, a disconnected sensor, an appraiser on the train. There is only one problem, and you see it at around three in the morning. If the theft was the plan, the gallery should have the miniature. But its Head of Security has just reported that she does not know where it is, and for the first time she looks truly frightened.',
+          'Somebody got there before them.',
         ],
         [
           'La GG-901 es la Miniatura de Cristal del Puerto. Una pieza que, según el catálogo de la propia galería, no ha existido nunca. Aun así pasó la noche de la gala en una vitrina iluminada en mitad de la sala, con media ciudad admirándola, y ahora están a punto de pagar 220.000 por su robo.',
-          'Así que el robo era el plan. Un trabajo desde dentro, un sensor preparado, una tasadora en el tren. Solo hay un problema, y lo ves hacia las tres de la madrugada: si el robo era el plan, ¿quién tiene la miniatura? Porque la jefa de seguridad acaba de denunciarlo, y por primera vez en toda la noche parece asustada.',
-          'Alguien llegó antes.',
+          'Así que el robo era el plan: un trabajo desde dentro, un sensor desconectado, una tasadora en el tren. Solo hay un problema, y lo ves hacia las tres de la madrugada. Si el robo era el plan, la miniatura debería tenerla la galería. Pero su jefa de seguridad acaba de denunciar que no sabe dónde está, y por primera vez parece asustada de verdad.',
+          'Alguien se les adelantó.',
         ],
       ),
     },
@@ -350,11 +350,11 @@ export const chapter3 = {
       location: bi('Glass Gallery · The morning after', 'Galería de Cristal · La mañana siguiente'),
       scene: bi(
         [
-          'The gallery wanted a theft, and it has been robbed for real. Five people were close to the restricted room during the critical half hour. Someone beat a corrupt security team to their own crime, and took a “piece that does not exist” with a key that should not exist either.',
+          'The gallery wanted to fake a theft, and it has been robbed for real. Five people were close to the restricted room during the critical half hour. Someone got ahead of the corrupt security team and took a “piece that does not exist” with a key that should not exist either.',
           'The surviving records are the cameras, the ticket list and the coat-check. You will get no hints from here on: Quiroga is at the Commissioner’s office, trying to stop this case being taken away too, and Teo has called in sick for the first time in thirty-one years.',
         ],
         [
-          'La galería quería un robo y la han robado de verdad. Cinco personas estuvieron cerca de la sala restringida durante la media hora crítica. Alguien se adelantó a un equipo de seguridad corrupto en su propio delito, y se llevó una «pieza que no existe» con una llave que tampoco debería existir.',
+          'La galería quería fingir un robo, y la han robado de verdad. Cinco personas estuvieron cerca de la sala restringida durante la media hora crítica. Alguien se adelantó al equipo de seguridad corrupto y se llevó una "pieza que no existe" con una llave que tampoco debería existir.',
           'Quedan las cámaras, la lista de entradas y el guardarropa. A partir de aquí no habrá ayudas: Quiroga está en el despacho del Comisario, intentando que no le quiten también este caso, y Teo ha llamado para decir que está enfermo por primera vez en treinta y un años.',
         ],
       ),
@@ -406,7 +406,7 @@ export const chapter3 = {
           title: bi('Examine the coat-check', 'Examina el guardarropa'),
           briefing: bi('Cross the two remaining names with the coat-check. Return the name and item of both.', 'Cruza los dos nombres restantes con el guardarropa. Devuelve name e item de ambos.'),
           expected: [{ name: 'Elia Font', item: bi('brass key', 'llave de latón') }, { name: 'Félix Mar', item: bi('leather gloves', 'guantes de cuero') }],
-          clue: bi('Elia Font checked in a brass key. Who leaves a key at the cloakroom? Someone collecting something else.', 'Elia Font dejó en el guardarropa una llave de latón. ¿Quién deja una llave en el guardarropa? Quien viene a por otra cosa.'),
+          clue: bi('Elia Font checked in a brass key. A very strange thing to leave there.', 'Elia Font dejó en el guardarropa una llave de latón. Un objeto muy raro para dejarlo allí.'),
         },
         {
           title: bi('Before the theft', 'Antes del robo'),
@@ -416,19 +416,19 @@ export const chapter3 = {
         },
       ],
       accusation: {
-        intro: bi('Quiroga calls from a phone booth, keeping her voice low. “One name. It has to be today, or it will be the Commissioner’s name for it.”', 'Quiroga llama desde una cabina, en voz baja. «Un nombre. Tiene que ser hoy, o será el que diga el Comisario.»'),
+        intro: bi('Quiroga calls from a phone booth, keeping her voice low. “Give me a name today, or the Commissioner will pick whichever suits him.”', 'Quiroga llama desde una cabina, en voz baja. "Dame un nombre hoy, o el Comisario pondrá el que le convenga."'),
         fields: [{ key: 'suspect', label: bi('Who stole the miniature?', '¿Quién robó la miniatura?'), options: ['Alba Grau', 'Dani Prat', 'Elia Font', 'Félix Mar', 'Nora Bell'] }],
         answer: { suspect: 'Elia Font' },
       },
       closing: bi(
         [
-          'You find her at the Hotel Miramar, in room 12, with her feet on the table, eating oranges. Elia Font: forty years old, three convictions, one of the best hands in the south. She does not look surprised. “It took you long enough,” she says. “Sit down. Not you, Comisaria, you I do not like. You, from the basement.”',
-          'The Miniature is on the bedspread. Elia presses the base with her thumb and it opens. It is hollow, and inside there is a strip of microfilm. “Somebody paid me to get this before they could destroy it for the insurance. Paid in advance, in cash, last month, and told me which night. She left a brass key at a left-luggage office with my name on it. Small handwriting. Careful.”',
+          'You find her at the Hotel Miramar, in room 7, with her feet on the table, eating oranges. Elia Font: forty years old, three convictions, one of the best thieves in the south. She does not look surprised. “It took you long enough,” she says. “Sit down. Not you, Inspector, I do not like you. I mean the one from the basement.”',
+          'The Miniature is on the bedspread. Elia presses the base with her thumb and it opens. It is hollow, and inside there is a strip of microfilm. “Somebody paid me to get this out before they could destroy it to collect the insurance. In advance, in cash, last month. They told me which night, and left me a brass key at a left-luggage office, with a note. Small handwriting. Careful.”',
           'Under the lamp, the film shows row after row of case numbers, with a date at the top of each column. Numbers from ATLAS. Numbers that, when you get back to your desk and search for them, do not exist. Someone is removing cases from the archive, and doing it from inside Basement Two.',
         ],
         [
-          'La encontráis en el Hotel Miramar, en la habitación 12, con los pies sobre la mesa, comiendo naranjas. Elia Font: cuarenta años, tres condenas, una de las mejores manos del sur. No parece sorprendida. «Habéis tardado», dice. «Siéntate. Tú no, comisaria, tú no me caes bien. Tú, la del sótano o el del sótano, me da igual.»',
-          'La Miniatura está sobre la colcha. Elia aprieta la base con el pulgar y se abre. Está hueca, y dentro hay una tira de microfilm. «Me pagaron para sacarla antes de que la destruyeran por el seguro. Por adelantado, en efectivo, el mes pasado, y me dijeron qué noche. Dejó una llave de latón en una consigna a mi nombre. Letra pequeña. Cuidadosa.»',
+          'La encontráis en el Hotel Miramar, en la habitación 7, con los pies sobre la mesa, comiendo naranjas. Elia Font: cuarenta años, tres condenas, una de las mejores ladronas del sur. No parece sorprendida. "Habéis tardado", dice. "Siéntate. Tú no, inspectora, tú no me caes bien. Me refiero a quien viene del sótano."',
+          'La Miniatura está sobre la colcha. Elia aprieta la base con el pulgar y se abre. Está hueca, y dentro hay una tira de microfilm. "Me pagaron para sacarla antes de que la destruyeran para cobrar el seguro. Por adelantado, en efectivo, el mes pasado. Me dijeron qué noche y me dejaron una llave de latón en una consigna, con una nota. Letra pequeña. Cuidadosa."',
           'Bajo la lámpara, la película muestra fila tras fila de números de expediente, con una fecha encima de cada columna. Números de ATLAS. Números que, cuando vuelves a tu mesa y los buscas, no existen. Alguien está borrando casos del archivo, y lo hace desde dentro del Sótano Dos.',
         ],
       ),

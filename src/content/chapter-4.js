@@ -52,7 +52,7 @@ const missingFiles = {
   1015: bi('Calle del Cordel: statement by witness', 'Calle del Cordel: declaración de testigo'),
   1027: bi('Warehouse fire, Plaza de la Sal: fire report', 'Incendio de almacén, Plaza de la Sal: parte de bomberos'),
   1039: bi('Warehouse fire, Paseo de la Red: fire report', 'Incendio de almacén, Paseo de la Red: parte de bomberos'),
-  1040: bi('Paseo de la Red: arson analysis', 'Paseo de la Red: análisis de piromanía'),
+  1040: bi('Paseo de la Red: arson analysis', 'Paseo de la Red: análisis de incendio provocado'),
   1041: bi('Paseo de la Red: anonymous complaint', 'Paseo de la Red: denuncia anónima'),
   1052: bi('Warehouse fire, Calle del Faro Viejo: death of a watchman', 'Incendio de almacén, Calle del Faro Viejo: muerte de un vigilante'),
 };
@@ -122,18 +122,18 @@ export const chapter4 = {
     title: bi('The crime scene is the machine', 'La escena del crimen es la máquina'),
     paragraphs: bi(
       [
-        'For a month you have been trusting ATLAS the way people trust a church. Now you have a strip of film with case numbers that ATLAS swears never existed, and you begin to go through your own queries with the sensation of having been told a joke at your expense.',
-        'Everything you have looked at might have been cleaned before you saw it. The fires, the witnesses, the arson analysis: there were files, and then the files were gone, and the sequence closed over them like water. Paper does not do that. To do that you need a password, a key to the building and a very patient person.',
-        'There are six people with access to Basement Two. You have been drinking coffee with them for a month. You start bringing your own thermos, and you stop saying what you are working on out loud.',
+        'For weeks you have been trusting ATLAS the way people trust a notary. Now you have a strip of film with case numbers that ATLAS swears never existed, and you go back through your own queries with the feeling that someone has been laughing at you.',
+        'Everything you have looked at might have been altered before you saw it. There were files on the fires, the witnesses and the arson analysis, and now they are gone, with nothing to show at first sight that they ever existed. To do that you need a password, a key to the building and a lot of patience.',
+        'There are six people with access to Basement Two. You have been drinking coffee with them for weeks. You start bringing your own thermos, and you stop saying what you are working on out loud.',
       ],
       [
-        'Llevas un mes confiando en ATLAS como se confía en una iglesia. Ahora tienes una tira de película con números de expediente que ATLAS jura que nunca existieron, y empiezas a repasar tus propias consultas con la sensación de que te han contado un chiste a tu costa.',
-        'Todo lo que has visto puede haberse limpiado antes de que lo vieras. Los incendios, los testigos, el análisis de piromanía: hubo expedientes, luego dejó de haberlos y la numeración se cerró sobre ellos como el agua. El papel no hace eso. Para eso hace falta una contraseña, una llave del edificio y una persona muy paciente.',
-        'Hay seis personas con acceso al Sótano Dos. Llevas un mes tomando café con ellas. Empiezas a traer tu propio termo y dejas de decir en voz alta en qué estás trabajando.',
+        'Llevas semanas fiándote de ATLAS como quien se fía de un notario. Ahora tienes una tira de película con números de expediente que ATLAS jura que nunca existieron, y repasas tus propias consultas con la sensación de que alguien se ha estado riendo de ti.',
+        'Todo lo que has consultado puede haberse alterado antes de que lo vieras. Había expedientes sobre los incendios, los testigos y los análisis, y ya no están, sin que a simple vista se note que existieron. Para eso hacen falta una contraseña, una llave del edificio y mucha paciencia.',
+        'Hay seis personas con acceso al Sótano Dos. Llevas semanas tomando café con ellas. Empiezas a traer tu propio termo y dejas de decir en voz alta en qué estás trabajando.',
       ],
     ),
     speaker: bi('NOTE UNDER THE KEYBOARD · I.B.', 'NOTA BAJO EL TECLADO · I.B.'),
-    quote: bi('“Do not look for what is in the table. Look for what should be there and is not.”', '«No busques lo que hay en la tabla. Busca lo que debería estar y no está.»'),
+    quote: bi('“Do not look for what is in the table. Look for what should be there and is not.”', '"No busques lo que hay en la tabla. Busca lo que debería estar y no está."'),
     action: bi('Stop trusting the archive', 'Dejar de fiarte del archivo'),
   },
   missions: [
@@ -141,32 +141,32 @@ export const chapter4 = {
       id: 'dirty-ledger',
       rating: 3,
       concepts: ['TRIM', 'UPPER', 'REPLACE', 'COALESCE'],
-      title: bi('Eight ways to write one name', 'Ocho formas de escribir un nombre'),
+      title: bi('Four ways to write one name', 'Cuatro formas de escribir un nombre'),
       location: bi('Harbour Accounts Office · 11:20', 'Contabilidad del Puerto · 11:20'),
       scene: bi(
         [
           'The Harbour Commission has handed over its supplier ledger with a smile, because anyone looking for payments to Naviera Vent will find only a handful. The clerks were not told to hide anything. They were only told, over a number of years, not to worry too much about how they typed things.',
-          'Real data is dirty, and sometimes dirty on purpose. Extra spaces, lowercase, dots here and not there, and a Ventanas Ruiz who sells windows and has done nothing wrong. A few payments do not even have an amount: only an estimate in another column. Before you can add anything up you will have to clean it.',
+          'Real data is dirty, and sometimes dirty on purpose. Extra spaces, lowercase, dots here and not there, and a supplier, Ventanas Ruiz, that sells windows and has nothing to do with this. A few payments do not even have an amount: only an estimate in another column. Before you can add anything up you will have to clean it.',
         ],
         [
           'La Comisión del Puerto ha entregado su libro de proveedores con una sonrisa, porque quien busque pagos a Naviera Vent solo encontrará un puñado. A los administrativos no les dijeron que escondieran nada. Solo les dijeron, a lo largo de años, que no se preocuparan mucho de cómo tecleaban las cosas.',
-          'Los datos reales están sucios, y a veces sucios a propósito. Espacios de más, minúsculas, puntos aquí sí y allí no, y una tal Ventanas Ruiz que vende ventanas y no ha hecho nada. Algunos pagos ni siquiera tienen importe: solo una estimación en otra columna. Antes de sumar nada tendrás que limpiarlo.',
+          'Los datos reales están sucios, y a veces sucios a propósito. Espacios de más, minúsculas, puntos aquí sí y allí no, y un proveedor, Ventanas Ruiz, que vende ventanas y no tiene nada que ver. Algunos pagos ni siquiera tienen importe: solo una estimación en otra columna. Antes de sumar nada tendrás que limpiarlo.',
         ],
       ),
       tables: { payments },
       stages: [
         {
           title: bi('How many spellings?', '¿Cuántas grafías?'),
-          briefing: bi('Count the different ways of writing the shipping company, searching for payees containing “naviera”. Return the count as spellings.', 'Cuenta las distintas formas de escribir la naviera, buscando los payee que contienen «naviera». Devuelve el recuento como spellings.'),
+          briefing: bi('Count the different ways of writing the shipping company, searching for payees containing “naviera”. Return the count as spellings.', 'Cuenta las distintas formas de escribir la naviera, buscando los payee que contienen "naviera". Devuelve el recuento como spellings.'),
           expected: [{ spellings: 4 }],
           hints: [bi("COUNT(DISTINCT payee) counts different values. In SQLite, LIKE ignores case: LIKE '%naviera%'.", "COUNT(DISTINCT payee) cuenta valores distintos. En SQLite, LIKE no distingue mayúsculas: LIKE '%naviera%'.")],
-          clue: bi('The same company appears written in four ways, so no simple search can add it up.', 'La misma empresa aparece escrita de cuatro formas, y ninguna búsqueda simple puede sumarla.'),
+          clue: bi('The same company appears written in four ways, so an exact search will never find them all.', 'La misma empresa aparece escrita de cuatro formas, y una búsqueda exacta nunca las encontrará todas.'),
         },
         {
           title: bi('One name', 'Un solo nombre'),
           briefing: bi('Clean the name: remove the dots, turn double spaces into one, trim the ends and put it in capitals. Return that value as clean and the count as payments, grouped.', 'Limpia el nombre: quita los puntos, convierte los espacios dobles en uno, recorta los extremos y pásalo a mayúsculas. Devuelve ese valor como clean y el recuento como payments, agrupados.'),
           expected: [{ clean: 'NAVIERA VENT SA', payments: 8 }],
-          hints: [bi("Functions can be nested: UPPER(TRIM(REPLACE(REPLACE(payee, '.', ''), '  ', ' '))).", "Las funciones se pueden anidar: UPPER(TRIM(REPLACE(REPLACE(payee, '.', ''), '  ', ' ')))."), bi('Keep the WHERE on “naviera” so that the other suppliers stay out.', 'Conserva el WHERE con «naviera» para dejar fuera a los demás proveedores.')],
+          hints: [bi("Functions can be nested: UPPER(TRIM(REPLACE(REPLACE(payee, '.', ''), '  ', ' '))).", "Las funciones se pueden anidar: UPPER(TRIM(REPLACE(REPLACE(payee, '.', ''), '  ', ' ')))."), bi('Keep the WHERE on “naviera” so that the other suppliers stay out.', 'Conserva el WHERE con "naviera" para dejar fuera a los demás proveedores.')],
           clue: bi('Once cleaned, there are eight payments to a single company: NAVIERA VENT SA.', 'Una vez limpios, son ocho pagos a una sola empresa: NAVIERA VENT SA.'),
         },
         {
@@ -174,17 +174,17 @@ export const chapter4 = {
           briefing: bi('Add up the eight payments. If amount is missing, use estimate instead. Return it as total.', 'Suma los ocho pagos. Si amount no existe, usa estimate en su lugar. Devuélvelo como total.'),
           expected: [{ total: naviera_total }],
           hints: [bi('COALESCE(amount, estimate) returns the first value that is not NULL. SUM on its own would ignore the missing amounts.', 'COALESCE(amount, estimate) devuelve el primer valor que no es NULL. SUM a secas ignoraría los importes ausentes.')],
-          clue: bi(`The Commission paid Naviera Vent ${naviera_total}: nearly three times what its report admits.`, `La Comisión pagó a Naviera Vent ${naviera_total}: casi el triple de lo que admite su memoria.`),
+          clue: bi(`The Commission paid Naviera Vent ${naviera_total.toLocaleString('en-GB')}: nearly three times what its report admits.`, `La Comisión pagó a Naviera Vent ${naviera_total.toLocaleString('es-ES')}: casi el triple de lo que admite su memoria.`),
         },
       ],
       closing: bi(
         [
-          'Quiroga takes the total upstairs and comes down again without it. “The Commissioner is thrilled with your initiative,” she says. “He wants a list of everything you have consulted this month, for reasons of efficiency.” She drops a piece of paper on your desk. It is a blank log. “Fill it in. Make it boring.”',
+          'Quiroga takes the total up to the Commissioner’s office and comes back with something else. “The Commissioner is thrilled with your initiative,” she says. “He wants a list of everything you have consulted this month, for reasons of efficiency.” She drops a piece of paper on your desk. It is a blank log. “Fill it in. Make it boring.”',
           'As she leaves she stops next to the mug of Inés Bosch. “She was the best we ever had down here, and she got too close to something, and one Friday she was just gone, with a transfer order and everything. I signed for her desk. I have thought about that every day since.” Then she leaves, without waiting to see how you take it.',
         ],
         [
-          'Quiroga sube el total y vuelve a bajar sin él. «El Comisario está encantado con tu iniciativa», dice. «Quiere una lista de todo lo que has consultado este mes, por razones de eficiencia.» Deja un papel en tu mesa. Es un registro en blanco. «Rellénalo. Que sea aburrido.»',
-          'Al marcharse se para junto a la taza de Inés Bosch. «Fue la mejor que hemos tenido aquí abajo, y se acercó demasiado a algo, y un viernes ya no estaba, con su orden de traslado y todo. Firmé yo la entrega de su mesa. Desde entonces lo pienso todos los días.» Y se va sin esperar a ver cómo te lo tomas.',
+          'Quiroga sube el total al despacho del Comisario y vuelve con otra cosa. "El Comisario está encantado con tu iniciativa", dice. "Quiere una lista de todo lo que has consultado este mes, por razones de eficiencia." Deja un papel en tu mesa. Es un registro en blanco. "Rellénalo. Que sea aburrido."',
+          'Al marcharse se para junto a la taza de Inés Bosch. "Fue la mejor que hemos tenido aquí abajo, y se acercó demasiado a algo, y un viernes ya no estaba, con su orden de traslado y todo. Firmé yo la entrega de su mesa. Desde entonces lo pienso todos los días." Y se va sin esperar a ver cómo te lo tomas.',
         ],
       ),
     },
@@ -198,11 +198,11 @@ export const chapter4 = {
       scene: bi(
         [
           'Elia’s film gives you the name of a backup partition that does not appear in any manual. You connect at one in the morning, with the lights off and your thermos on the desk. ATLAS accepts the connection, and then it shows you nothing at all. The catalogue of this partition has been wiped: no list of tables, no columns, not even .tables will answer.',
-          'That is a mistake by someone who does not know databases as well as they think. A catalogue can be hidden from a menu, but a database has to know what it contains in order to work, and SQLite keeps that knowledge in a table of its own, called sqlite_master. It is always there. It is the one room in the house nobody thinks of cleaning.',
+          'Whoever wiped it does not know databases as well as they think. A catalogue can be hidden from a menu, but a database has to know what it contains in order to work, and SQLite keeps that knowledge in a table of its own, called sqlite_master. It is always there, and nobody thinks of touching it.',
         ],
         [
-          'La película de Elia te da el nombre de una partición de copias que no aparece en ningún manual. Te conectas a la una de la mañana, con las luces apagadas y el termo en la mesa. ATLAS acepta la conexión y después no te enseña absolutamente nada. Han borrado el catálogo de esta partición: ni lista de tablas, ni columnas, ni siquiera .tables contesta.',
-          'Es un error de alguien que no conoce las bases de datos tanto como cree. Un catálogo se puede esconder en un menú, pero una base de datos necesita saber qué contiene para funcionar, y SQLite guarda eso en una tabla propia, llamada sqlite_master. Siempre está ahí. Es la única habitación de la casa que a nadie se le ocurre limpiar.',
+          'La película de Elia te da el nombre de una partición de copias de seguridad que no aparece en ningún manual. Te conectas a la una de la mañana, con las luces apagadas y el termo en la mesa. ATLAS acepta la conexión y después no te enseña absolutamente nada. Han borrado el catálogo de esta partición: ni lista de tablas, ni columnas, ni siquiera .tables contesta.',
+          'Quien lo borró no conoce las bases de datos tanto como cree. Un catálogo se puede esconder de los menús, pero una base de datos necesita saber qué contiene para funcionar, y SQLite guarda eso en una tabla propia, llamada sqlite_master. Siempre está ahí, y a nadie se le ocurre tocarla.',
         ],
       ),
       tables: {
@@ -212,7 +212,7 @@ export const chapter4 = {
       },
       stages: [
         {
-          title: bi('Ask the database about itself', 'Pregúntale a la base de datos por sí misma'),
+          title: bi('Ask the database about itself', 'Pregúntale a la base de datos qué contiene'),
           briefing: bi('Return the name of every table in the partition, in alphabetical order, from sqlite_master.', 'Devuelve el name de cada tabla de la partición, en orden alfabético, a partir de sqlite_master.'),
           ordered: true,
           expected: [{ name: 'k7_shadow' }, { name: 'tmp_0419' }, { name: 'z_custody' }],
@@ -237,11 +237,11 @@ export const chapter4 = {
       closing: bi(
         [
           'Seven records, one operator. In a building with one machine, a login is as good as a fingerprint. You print nothing, and write OP-31 on the inside of your wrist in ballpoint like a schoolchild.',
-          'Each deletion has a box next to it: B3, B4, B5. So the paper did not go to the fire with the rest. Someone took the trouble to delete the record from the machine, and to keep the original in a box. You sit with that for a while. Nobody who only wants to destroy evidence bothers to keep it.',
+          'Each deletion has a box next to it: B3, B4, B5. So the paper was never destroyed. Someone took the trouble to delete the record from the machine, and to keep the original in a box. You sit with that for a while. Nobody who only wants to destroy evidence bothers to keep it.',
         ],
         [
           'Siete registros, un operador. En un edificio con una sola máquina, un inicio de sesión vale lo que una huella. No imprimes nada, y te escribes OP-31 con bolígrafo en la cara interna de la muñeca, como en el colegio.',
-          'Cada borrado tiene al lado una caja: B3, B4, B5. Así que el papel no se fue al fuego con el resto. Alguien se tomó la molestia de borrar el registro de la máquina y conservar el original en una caja. Te quedas un rato pensándolo. Quien solo quiere destruir pruebas no se molesta en guardarlas.',
+          'Cada borrado tiene al lado una caja: B3, B4, B5. Así que el papel nunca se destruyó. Alguien se tomó la molestia de borrar el registro de la máquina y conservar el original en una caja. Te quedas un rato pensándolo. Quien solo quiere destruir pruebas no se molesta en guardarlas.',
         ],
       ),
     },
@@ -250,15 +250,15 @@ export const chapter4 = {
       rating: 4,
       concepts: ['WINDOW', 'LAG', 'NOT IN'],
       title: bi('What should be there and is not', 'Lo que debería estar y no está'),
-      location: bi('Records Bureau · 03:05', 'Negociado de Registros · 03:05'),
+      location: bi('Records Bureau · 03:05', 'Archivo Central · 03:05'),
       scene: bi(
         [
           'Case numbers are assigned by ATLAS and never reused: 1001, 1002, 1003. A clean sequence is proof that nothing has been touched, which is why nobody has ever looked at it. Now you want to compare each row with the one before it, and a normal query cannot do that: each row only knows about itself.',
-          'That is what window functions are for. They let a row look at its neighbours without collapsing into a group. LAG gives you the previous value in whatever order you ask for. Where the gap between neighbours is bigger than one, somebody has been at work.',
+          'That is what window functions are for. They let a row look at its neighbours without merging them into a group. LAG gives you the previous value in whatever order you ask for. Where the gap between neighbours is bigger than one, somebody has deleted files.',
         ],
         [
           'ATLAS asigna los números de expediente y no los reutiliza nunca: 1001, 1002, 1003. Una secuencia limpia es la prueba de que nadie ha tocado nada, y por eso nadie la ha mirado jamás. Ahora quieres comparar cada fila con la anterior, y una consulta normal no puede: cada fila solo sabe de sí misma.',
-          'Para eso están las funciones de ventana. Permiten que una fila mire a sus vecinas sin colapsar en un grupo. LAG te da el valor anterior en el orden que pidas. Donde el salto entre vecinas sea mayor que uno, alguien ha estado trabajando.',
+          'Para eso están las funciones de ventana. Permiten que una fila mire a sus vecinas sin fundirse con ellas en un grupo. LAG te da el valor anterior en el orden que pidas. Donde el salto entre vecinas sea mayor que uno, alguien ha borrado expedientes.',
         ],
       ),
       tables: { case_files: caseFiles, tape_index: tapeIndex },
@@ -293,12 +293,12 @@ export const chapter4 = {
       ],
       closing: bi(
         [
-          'Fire report, witness, arson analysis, anonymous complaint, the death of a watchman. There it is, what the city was told had not happened, one title per line. You read the names of the streets. You have walked down them. On two of them there is already a fence with the logo of Proyecto Faro.',
+          'Fire report, witness, arson analysis, anonymous complaint, the death of a watchman. There it is, everything the city was told had never happened, one title per line. You read the names of the streets. You have walked down them. On two of them there is already a fence with the logo of Proyecto Faro.',
           'You do not sleep. At eight you go upstairs and ask, in the most boring voice you can manage, who has the operator code OP-31. The clerk looks it up without curiosity, then frowns. “That is odd,” she says.',
         ],
         [
-          'Parte de bomberos, testigo, análisis de piromanía, denuncia anónima, la muerte de un vigilante. Ahí está, lo que le contaron a la ciudad que no había pasado, un título por línea. Lees los nombres de las calles. Has pasado por ellas. En dos ya hay una valla con el logo del Proyecto Faro.',
-          'No duermes. A las ocho subes y preguntas, con la voz más aburrida que puedes, quién tiene el código de operador OP-31. La administrativa lo busca sin curiosidad y luego frunce el ceño. «Qué raro», dice.',
+          'Parte de bomberos, testigo, análisis del incendio, denuncia anónima, la muerte de un vigilante. Ahí está todo lo que le dijeron a la ciudad que nunca había pasado, un título por línea. Lees los nombres de las calles. Has pasado por ellas. En dos ya hay una valla con el logo del Proyecto Faro.',
+          'No duermes. A las ocho subes y preguntas, con la voz más aburrida que puedes, quién tiene el código de operador OP-31. La administrativa lo busca sin curiosidad y luego frunce el ceño. "Qué raro", dice.',
         ],
       ),
     },
@@ -311,11 +311,11 @@ export const chapter4 = {
       scene: bi(
         [
           'ATLAS has an audit log. It was installed by someone conscientious, and nobody who has used the system since has ever read it. It has a line for each action on each record: who created it, who edited it, who deleted it. And sometimes, who deleted it and thought better of it: record 1005 was removed by mistake last June and restored fifteen minutes later.',
-          'So you cannot just search for DELETE. You need only the last action on each record, and that requires numbering the rows of each record separately, starting from the most recent. PARTITION BY is GROUP BY for those who do not want to lose their rows.',
+          'So you cannot just search for DELETE. You need only the last action on each record, and that requires numbering the rows of each record separately, starting from the most recent. PARTITION BY groups like GROUP BY, but without merging the rows into one.',
         ],
         [
           'ATLAS tiene un registro de auditoría. Lo instaló alguien concienzudo, y nadie de los que han usado el sistema desde entonces lo ha leído jamás. Tiene una línea por cada acción sobre cada registro: quién lo creó, quién lo editó, quién lo borró. Y a veces, quién lo borró y se lo pensó mejor: el 1005 se eliminó por error el pasado junio y se restauró quince minutos después.',
-          'Así que no basta con buscar DELETE. Necesitas solo la última acción de cada registro, y eso exige numerar las filas de cada registro por separado, empezando por la más reciente. PARTITION BY es GROUP BY para quien no quiere perder sus filas.',
+          'Así que no basta con buscar DELETE. Necesitas solo la última acción de cada registro, y eso exige numerar las filas de cada registro por separado, empezando por la más reciente. PARTITION BY agrupa como GROUP BY, pero sin fundir las filas en una.',
         ],
       ),
       tables: {
@@ -352,12 +352,12 @@ export const chapter4 = {
       ],
       closing: bi(
         [
-          'You look at the screen for some time. The notes, the envelope, the handwriting: and now her code on every deletion. Is that what this has been? Has the person guiding you been burning the evidence, and leading you to it, for reasons you cannot imagine? It is possible. You have seen stranger things in this basement.',
-          'But the date is wrong, and the date is what stays with you. A code can be used by anyone who knows the password, and a password has to be typed by a pair of hands on a keyboard in Basement Two. In a building with a door log. On five specific nights. You do not know where Inés Bosch was on those nights. But you know how to find out who was here.',
+          'You look at the screen for some time. The notes, the envelope, the handwriting: and now her code on every deletion. Has it been her all along? Is the person leaving you the notes the same one who deletes the evidence? It is possible. You have seen stranger things in this basement.',
+          'But something does not add up: Inés Bosch left eleven months ago. A code can be used by anyone who knows the password, but someone had to type it here, in Basement Two, on five specific nights, in a building that logs who comes through the door. You do not know where Inés Bosch was on those nights. But you know how to find out who was here.',
         ],
         [
-          'Miras la pantalla un buen rato. Las notas, el sobre, la letra: y ahora su código en cada borrado. ¿Era esto? ¿La persona que te guía ha estado quemando las pruebas y llevándote hasta ellas, por motivos que no alcanzas a imaginar? Es posible. Cosas más raras se han visto en este sótano.',
-          'Pero la fecha no cuadra, y la fecha es lo que se te queda dando vueltas. Un código puede usarlo cualquiera que conozca la contraseña, y una contraseña la tiene que teclear un par de manos en el Sótano Dos. En un edificio con registro de puerta. En cinco noches concretas. No sabes dónde estaba Inés Bosch esas noches. Pero sabes cómo averiguar quién estaba aquí.',
+          'Miras la pantalla un buen rato. Las notas, el sobre, la letra: y ahora su código en cada borrado. ¿Ha sido ella todo este tiempo? ¿La persona que te deja las notas es la misma que borra las pruebas? Es posible. Cosas más raras se han visto en este sótano.',
+          'Pero hay algo que no cuadra: Inés Bosch se fue hace once meses. Un código puede usarlo cualquiera que conozca la contraseña, pero alguien tuvo que teclearla aquí, en el Sótano Dos, cinco noches concretas, en un edificio que registra quién entra por la puerta. No sabes dónde estaba Inés Bosch esas noches. Pero sabes cómo averiguar quién estaba aquí.',
         ],
       ),
     },
@@ -416,20 +416,20 @@ export const chapter4 = {
         },
       ],
       accusation: {
-        intro: bi('Put a name on the page. It is the page you have been hoping would come out differently.', 'Pon un nombre en la hoja. Es la hoja que esperabas que saliera de otra forma.'),
+        intro: bi('Put a name on the page, even if you hoped it would be a different one.', 'Pon un nombre en la hoja, aunque habrías preferido que saliera otro.'),
         fields: [{ key: 'insider', label: bi('Who has been deleting the archive?', '¿Quién ha estado borrando el archivo?'), options: ['Inés Bosch', 'Iris Vega', 'Leo Martín', 'Marta Quiroga', 'Ricardo Salas', 'Teo Ferrán'] }],
         answer: { insider: 'Teo Ferrán' },
       },
       closing: bi(
         [
-          'You do not take it to Quiroga. Not first. You wait until the basement is empty, and you sit down at the second chair of his desk, the one he pushed towards you with his bad leg on your first week. He looks at the paper for a while. He takes off his glasses. Without them he looks very old.',
-          '“My wife’s treatment was at Vent’s clinic,” he says. “Then one day I was told how it would continue being paid for. A few records, on certain Tuesdays. You would be surprised how quickly a man gets used to it.” He rubs his eyes. “Inés found out, of course. She was better than all of us. They wanted her in the harbour, and the only thing I have done in thirty-one years that was worth anything was to forge a transfer order and put her on a boat before they got to her. I signed it with her own code.”',
-          '“I kept the paper. Every page they told me to destroy. Boxes B1 to B9. And I sent you to her notes, kid, because she wrote them for whoever came next, and I wanted it to be somebody who would get this far.” He opens his drawer and puts something on the table between you. Brass. Stamped A-12. “I took it the day you arrived. It opens the cabinet where the tape is, and I am too much of a coward to use it. They are still broadcasting from the coast, on the old frequencies. You know whose signal that is. Go on. Ask the machine.”',
+          'You do not take it to Quiroga, not yet. You wait until the basement is empty and you sit down across from Teo, in the chair he pushed towards you with his bad leg in your first week. He looks at the paper for a while. He takes off his glasses. Without them he looks very old.',
+          '“My wife’s treatment was at Vent’s clinic,” he says. “Then one day I was told how it would continue being paid for. I only had to delete a few records, on certain Tuesdays. You would be surprised how quickly a man gets used to it.” He rubs his eyes. “Inés found out, of course. She was better than all of us. They wanted her in the harbour, and the only thing I have done in thirty-one years that was worth anything was to forge a transfer order and put her on a boat before they got to her. I signed it with her own code. And I have used that code ever since, because nobody can ask questions of a woman who is no longer here.”',
+          '“I kept the paper. Every page they told me to destroy. Boxes B1 to B9. She wrote those notes before she left, for whoever came next, and I was the one who put them in your way, kid. I needed somebody who could get this far.” He opens his drawer and puts something on the table between you. Brass. Stamped A-12. “I took it the day you arrived. It opens the cabinet where the tape is, and I am too much of a coward to use it. She is still broadcasting from the coast, on the old frequencies. Go on. Ask the machine.”',
         ],
         [
-          'No se lo llevas a Quiroga. Primero no. Esperas a que el sótano esté vacío y te sientas en la segunda silla de su mesa, la que empujó hacia ti con la pierna mala en tu primera semana. Mira el papel un rato. Se quita las gafas. Sin ellas parece muy viejo.',
-          '«El tratamiento de mi mujer era en la clínica de Vent», dice. «Un día me explicaron cómo iba a seguir pagándose. Unos pocos registros, ciertos martes. Te sorprendería lo rápido que se acostumbra uno.» Se frota los ojos. «Inés se dio cuenta, claro. Era mejor que todos nosotros. La querían en el fondo del puerto, y lo único que he hecho en treinta y un años que haya valido algo fue falsificar una orden de traslado y meterla en un barco antes de que llegaran. La firmé con su propio código.»',
-          '«Guardé el papel. Cada hoja que me dijeron que destruyera. Cajas de la B1 a la B9. Y te mandé a sus notas, porque ella las escribió para quien viniera después, y yo quería que fuera alguien capaz de llegar hasta aquí.» Abre el cajón y deja algo sobre la mesa, entre los dos. Latón. Con A-12 grabado. «La cogí el día que llegaste. Abre el armario donde está la cinta, y soy demasiado cobarde para usarla. Siguen emitiendo desde la costa, en las frecuencias viejas. Ya sabes de quién es esa señal. Venga. Pregúntale a la máquina.»',
+          'No se lo llevas a Quiroga, todavía no. Esperas a que el sótano esté vacío y te sientas frente a Teo, en la silla que empujó hacia ti con la pierna mala en tu primera semana. Mira el papel un rato. Se quita las gafas. Sin ellas parece muy viejo.',
+          '"El tratamiento de mi mujer era en la clínica de Vent", dice. "Un día me explicaron cómo iba a seguir pagándose. Bastaba con borrar unos pocos registros, ciertos martes. Te sorprendería lo rápido que se acostumbra uno." Se frota los ojos. "Inés se dio cuenta, claro. Era mejor que todos nosotros. La querían en el fondo del puerto, y lo único que he hecho en treinta y un años que haya valido algo fue falsificar una orden de traslado y subir a Inés a un barco antes de que la encontraran. La firmé con su propio código. Y desde entonces borro con él, porque a una mujer que ya no está nadie puede preguntarle nada."',
+          '"Guardé el papel. Cada hoja que me dijeron que destruyera. Cajas de la B1 a la B9. Esas notas las escribió ella antes de irse, para quien viniera después, y fui yo quien las puso en tu camino. Necesitaba a alguien capaz de llegar hasta aquí." Abre el cajón y deja algo sobre la mesa, entre los dos. Latón. Con A-12 grabado. "La cogí el día que llegaste. Abre el armario donde está la cinta. Yo soy demasiado cobarde para usarla. Ella sigue emitiendo desde la costa, en las frecuencias viejas. Venga. Pregúntale a la máquina."',
         ],
       ),
     },
