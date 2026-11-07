@@ -113,7 +113,7 @@ export function renderMissions(app) {
   return [
     h(
       'div',
-      { class: 'screen-bar' },
+      { class: 'screen-bar missions-bar' },
       h('button', { class: 'back-button', type: 'button', onClick: () => app.navigate('menu') }, `← ${t(text.back)}`),
       h(
         'p',
