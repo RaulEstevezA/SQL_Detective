@@ -1,7 +1,12 @@
+# Builds the game and publishes it in the personal website repository, under
+# /games/SQL_Detective/. Requires the PORTFOLIO_DEPLOY_TOKEN secret, with write access
+# to that repository only. See PUBLISHING.md in personal_web_style.
 name: Deploy game
+
 on:
   push:
     branches: [main]
+    # Only changes that affect the published app trigger a deployment.
     paths:
       - 'src/**'
       - 'public/**'
@@ -12,47 +17,78 @@ on:
       - 'package-lock.json'
       - '.github/workflows/deploy-web.yml'
   workflow_dispatch:
+
+# Deployments run one after another and are never cancelled, so that a push to the
+# website repository cannot be interrupted halfway.
 concurrency:
   group: deploy-sql-detective
   cancel-in-progress: false
+
+env:
+  NODE_VERSION: '22'
+  SITE_REPOSITORY: RaulEstevezA/RaulEstevezA.github.io
+  GAME_PATH: games/SQL_Detective
+
 permissions:
   contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Test and build
-        run: |
-          npm ci
-          npm run check
-      - name: Check deployment token
+      - name: Check deploy token
         env:
           PORTFOLIO_DEPLOY_TOKEN: ${{ secrets.PORTFOLIO_DEPLOY_TOKEN }}
-        run: test -n "$PORTFOLIO_DEPLOY_TOKEN" || (echo 'Add PORTFOLIO_DEPLOY_TOKEN in repository Actions secrets.' && exit 1)
-      - name: Check out personal website
+        run: |
+          if [ -z "$PORTFOLIO_DEPLOY_TOKEN" ]; then
+            echo "::error::Missing PORTFOLIO_DEPLOY_TOKEN (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+      - name: Checkout game
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm test
+      # The build also fails when the analytics beacon is not present exactly once.
+      - name: Build
+        run: npm run build
+      - name: Checkout website
         uses: actions/checkout@v4
         with:
-          repository: RaulEstevezA/RaulEstevezA.github.io
+          repository: ${{ env.SITE_REPOSITORY }}
+          ref: main
           token: ${{ secrets.PORTFOLIO_DEPLOY_TOKEN }}
           path: site
-      - name: Copy game build
+      # --delete removes files from earlier builds that no longer exist in dist/.
+      - name: Copy build into website
         run: |
-          mkdir -p site/games/SQL_Detective
-          rsync -a --delete dist/ site/games/SQL_Detective/
-      - name: Publish when changed
+          mkdir -p "site/${GAME_PATH}"
+          rsync -a --delete dist/ "site/${GAME_PATH}/"
+      - name: Commit and push
         working-directory: site
         run: |
-          git add games/SQL_Detective
-          if git diff --cached --quiet; then exit 0; fi
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git commit -m "deploy: update games/SQL_Detective from SQL_Detective@${GITHUB_SHA}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${GAME_PATH}"
+          if git diff --cached --quiet; then
+            echo "No changes in ${GAME_PATH}"
+            exit 0
+          fi
+          git commit -m "deploy: update ${GAME_PATH} from ${GITHUB_REPOSITORY}@${GITHUB_SHA::7}"
+          # Other projects publish to the same repository, so a push can be rejected
+          # by a concurrent deployment. Rebase and retry before giving up.
           for attempt in 1 2 3; do
-            git push && exit 0
-            git pull --rebase
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            if [ "$attempt" -lt 3 ]; then sleep 5; fi
           done
+          echo "Deployment failed after 3 attempts."
           exit 1
