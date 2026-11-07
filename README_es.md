@@ -4,95 +4,76 @@
   <img src="./public/sql-detective-logo.png" alt="Logo de SQL Detective" width="160">
 </p>
 
-Juego web educativo para aprender SQL resolviendo misterios con bases de datos ficticias. Cada investigación presenta una historia, un objetivo y pruebas que deben descubrirse mediante consultas de solo lectura.
+Una novela negra interactiva para aprender SQL. Cada caso es un capítulo de una misma historia y cada paso de la historia es una consulta real, ejecutada en tu navegador sobre SQLite.
 
 **Jugar:** [raulesteveza.github.io/games/SQL_Detective](https://raulesteveza.github.io/games/SQL_Detective/)
 
-**English:** [README_en.md](./README_en.md)
+## La historia
 
-## Características
-
-- 15 casos completos en español e inglés.
-- Tutorial integrado y desbloqueo progresivo.
-- Historias completas separadas de los objetivos para evitar spoilers.
-- Dificultad accesible de 0 a 5 estrellas.
-- Consultas ejecutadas localmente con SQLite y WebAssembly.
-- Pistas opcionales, errores didácticos y explicación de las soluciones.
-- Tres expedientes por etapas con libreta de pruebas y acusación final.
-- Progreso guardado en el navegador y opción para reiniciarlo.
-- Guía SQL integrada con `.tables` para explorar cada caso.
-- Diseño responsive, navegación por teclado y foco visible.
-- Sin backend, cuentas de usuario ni servicios externos obligatorios.
+Puerto Ceniza, noviembre de 1987. Lleva once días lloviendo. Eres quien acaba de llegar al Negociado de Registros, dos plantas por debajo de la Jefatura, a la mesa de Inés Bosch, «trasladada» hace once meses. Arden almacenes en el Barrio Viejo, sus expedientes desaparecen, y alguien te está dejando notas dentro de los datos.
 
 ## Campaña
 
-La campaña está organizada en tres bloques:
-
-| Bloque | Casos | Contenido |
+| Capítulo | Casos | SQL |
 |---|---:|---|
-| Tutorial | 3 | `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`, `JOIN`, `COUNT` y `GROUP BY` |
-| Investigaciones | 9 | `LIKE`, `IN`, `BETWEEN`, `NULL`, joins múltiples, agregaciones, subconsultas, `CASE`, CTE y self-joins |
-| Expedientes | 3 | Investigación por etapas, combinación de varias fuentes, funciones de ventana y acusaciones |
+| 1. Sótano Dos | 5 | `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`, `LIKE`, `DISTINCT`, `BETWEEN`, `IN`, `JOIN`, `GROUP BY` |
+| 2. Muelle Tres | 5 | `LEFT JOIN`, `IS NULL`, `HAVING`, varios joins, `AVG`, subconsultas |
+| 3. La Galería de Cristal | 5 | `CASE`, self joins, CTE, `strftime`, `EXCEPT`, `UNION` |
+| 4. Registros alterados | 5 | `TRIM`, `UPPER`, `REPLACE`, `COALESCE`, `sqlite_master`, `LAG`, `ROW_NUMBER`, joins por rangos |
+| 5. La última señal | 4 | `WITH RECURSIVE`, `SUM OVER`, `julianday`, todo a la vez |
 
-Los tres tutoriales deben completarse en orden. Hasta entonces, la sección de investigaciones permanece cerrada y muestra un candado. Al terminar el tutorial se desbloquean las doce investigaciones, que pueden jugarse libremente y en cualquier orden.
-
-Los casos de cuatro y cinco estrellas no proporcionan pistas opcionales ni consultas de ejemplo. El expediente final contiene nueve líneas de investigación, diez tablas, pruebas ambiguas y dos responsables que deben demostrarse mediante fuentes independientes.
+La historia es lineal: al cerrar un caso se abre el siguiente, y los casos cerrados se pueden reabrir.
 
 ## Cómo se juega
 
-1. Lee el resumen del caso y abre la historia completa si necesitas más contexto.
-2. Examina las tablas y columnas disponibles. En el expediente final deberás descubrirlas desde el editor.
-3. Escribe una consulta SQL y ejecútala con el botón correspondiente o con `Ctrl/Cmd + Enter`.
-4. Compara los resultados, descarta coincidencias y registra nuevas pruebas.
-5. En los expedientes, completa cada línea para actualizar la libreta del detective.
-6. Formula la acusación final cuando todas las pruebas estén reunidas.
-
-La Guía SQL explica las sentencias utilizadas. También admite:
-
-```sql
-.tables
+```text
+Leer la escena  →  Leer la pista  →  Escribir una consulta  →  Indicio en el cuaderno  →  Siguiente pista
 ```
 
-para enumerar las tablas del caso actual, y:
+- Cada caso tiene varias pistas. Si un resultado no responde a una, el juego explica por qué: falta una columna, sobran filas, el orden no es el pedido.
+- Las columnas de más no importan, y el orden de las filas tampoco, salvo que la pista lo pida.
+- Los casos difíciles esconden las pruebas entre filas corrientes, y los últimos no ofrecen ayuda. Uno de ellos no tiene lista de tablas: tendrás que preguntarle a la propia base de datos.
+- Los expedientes terminan con una acusación, y el último caso con una decisión que elige uno de los tres finales.
+- Pedir ayuda cuesta 1 punto de credibilidad y una acusación falsa, 5. Nunca te bloquea; solo decide tu rango final.
 
-```sql
-SELECT * FROM nombre_tabla LIMIT 5;
+El terminal es de solo lectura: acepta una consulta `SELECT` o `WITH` cada vez, además del comando `.tables`. El manual de SQL está siempre disponible desde el menú y desde cada caso.
+
+## Arquitectura
+
+Módulos ES sin framework ni empaquetador, organizados por capas. Las dependencias apuntan hacia dentro: `ui` y `platform` dependen de `core`, y `core` no depende de nada.
+
+| Carpeta | Responsabilidad |
+|---|---|
+| `src/core/` | Reglas del juego sin navegador: ejecución de SQL, comprobación de resultados, progreso, desbloqueo, puntuación. Se prueban en Node |
+| `src/content/` | La historia y todos los textos, como datos. Añadir un caso no cambia las reglas |
+| `src/platform/` | Adaptadores del navegador: partida guardada, idioma, carga del motor SQL |
+| `src/ui/` | Dibujo: `screens/` en un registro en `app.js`, y `components/` |
+| `src/main.js` | Raíz de composición: crea las dependencias del navegador y arranca el juego |
+
+Los patrones se nombran en la cabecera de cada módulo: registros de pantallas (`ui/app.js`), capítulos (`content/campaign.js`), finales (`content/endings.js`) y comandos del terminal (`core/meta-commands.js`), y transiciones puras sobre la partida (`core/progress.js`). El formato de una misión está en `content/campaign.js`, y `tests/solutions.js` guarda la consulta canónica de cada pista.
+
+## Desarrollo
+
+```bash
+npm install
+npm run dev        # http://localhost:4173
+npm run check      # lint, tests y build
+npm run solutions  # escribe una hoja de respuestas local en local-data/
 ```
 
-para examinar una muestra de sus columnas y filas.
+Las ilustraciones están en `public/art/` y se declaran en `src/content/art.js`. El menú principal y los capítulos bloqueados usan una ciudad dibujada.
 
-## Seguridad y privacidad
-
-- Todos los datos son ficticios y se cargan en una base SQLite nueva en memoria.
-- Las consultas se ejecutan únicamente en la pestaña del navegador.
-- No se envían datos, consultas ni progreso a ningún servidor.
-- Solo se admiten consultas de lectura iniciadas con `SELECT` o `WITH`.
-- Las escrituras, los cambios de esquema y las consultas múltiples están bloqueados.
-- `.tables` es un metacomando seguro implementado por el propio juego.
-- El progreso y el idioma seleccionado se guardan únicamente en el navegador.
-
-## Accesibilidad y compatibilidad
-
-- Interfaz adaptable para ordenador, tableta y móvil.
-- Controles accesibles mediante teclado.
-- Foco visible y enlace para saltar directamente al juego.
-- Etiquetas para el editor, pestañas, dificultad, diálogos y formularios.
-- Estados bloqueados comunicados visualmente y mediante atributos ARIA.
-- Compatible con navegadores modernos que admitan módulos ES, WebAssembly, `dialog` y `localStorage`.
-
-## Tecnologías
-
-- HTML5 semántico.
-- CSS personalizado.
-- JavaScript mediante módulos ES.
-- [sql.js](https://github.com/sql-js/sql.js) para ejecutar SQLite en WebAssembly.
+El progreso se guarda en `localStorage` con la clave `sqldetective.progress`, con versión del formato. El idioma se hereda de la web mediante `lang`.
 
 ## Desarrollador
 
-**Raul Estevez** · [Web personal](https://raulesteveza.github.io/) · [LinkedIn](https://www.linkedin.com/in/raulesteveza/)
+**Raul Estevez**
+
+- [Web personal](https://raulesteveza.github.io/)
+- [Perfil de LinkedIn](https://www.linkedin.com/in/raulesteveza/)
 
 Sugerencias y errores: [contact.raulesteveza@gmail.com](mailto:contact.raulesteveza@gmail.com)
 
 ## Licencia
 
-Distribuido bajo la licencia [MIT](./LICENSE).
+[MIT](./LICENSE)
